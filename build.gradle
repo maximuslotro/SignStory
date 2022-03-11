@@ -1,0 +1,179 @@
+buildscript {
+    repositories {
+mavenCentral();
+        maven {
+            url "https://repo1.maven.org/maven2" 
+        }
+        
+        maven {
+            name = "forge"
+            //url = "http://lss233.littleservice.cn/repositories/minecraft"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = 'sonatype'
+            url = 'https://oss.sonatype.org/content/repositories/snapshots/'
+        }
+    }
+    dependencies {
+        classpath project.forgegradle
+    }
+}
+
+apply plugin: 'forge'
+
+// ext.build = System.getenv().BUILD_NUMBER ?: 'git'
+ext.modversion = "${project.version_major}.${project.version_minor}.${project.version_micro}"
+
+group = project.group
+version = "${project.version_minecraft}-${modversion}"
+compileJava.options.encoding = 'UTF-8'
+compileApiJava.options.encoding = 'UTF-8'
+
+idea {
+    module {
+        downloadSources = true
+        inheritOutputDirs = true
+    }
+}
+
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
+minecraft {
+    srgExtra "PK: org/apache/http/entity/mime com/kamesuta/mc/signpic/lib/org/apache/http/entity/mime"
+    srgExtra "PK: org/apache/http/entity/mime/content com/kamesuta/mc/signpic/lib/org/apache/http/entity/mime/content"
+
+    version = "${project.version_minecraft}-${project.version_forge}"
+
+    if (project.hasProperty('version_mappings'))
+        mappings = project.version_mappings
+
+    if (!project.hasProperty('run_location'))
+        runDir = 'run'
+    else
+        runDir = run_location.replace('{modid}', project.modid).replace('{mcversion}', project.version_minecraft)
+
+    replaceIn 'Reference.java'
+    replace '${modid}', project.modid
+    replace '${modname}', project.modname
+    replace '${version}', modversion
+    replace '${mcversion}', project.version_minecraft
+    replace '${forgeversion}', project.version_forge
+}
+
+sourceSets {
+    api {
+        java {
+            srcDir "BnnWidget/src/api/java"
+        }
+        resources {
+            srcDir "BnnWidget/src/api/resources"
+        }
+    }
+}
+
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        expand([
+                'modid'          : project.modid,
+                'modname'        : project.modname,
+                'version'        : modversion,
+                'mcversion'      : project.version_minecraft,
+                'forgeversion'   : project.version_forge,
+                'minforgeversion': project.hasProperty('version_minforge') ? project.version_minforge : project.version_forge,
+        ])
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+dependencies {
+	shade('org.apache.httpcomponents:httpmime:4.3.3'){transitive=false}
+}
+
+def commonManifest = {
+    if (project.hasProperty('extra_fmlcore'))
+        attributes 'FMLCorePlugin': project.extra_fmlcore
+    if (project.hasProperty('extra_fmlmod'))
+        attributes 'FMLCorePluginContainsFMLMod': project.extra_fmlcore
+    if (project.hasProperty('extra_fmlat'))
+        attributes 'FMLAT': project.extra_fmlat
+}
+
+jar {
+    from sourceSets.api.output
+    configurations.shade.each { dep ->
+        from(project.zipTree(dep)){
+            exclude 'META-INF', 'META-INF/**'
+        }
+    }
+    classifier = project.hasProperty('extra_classifier') ? project.extra_classifier : 'universal'
+    manifest commonManifest
+}
+
+
+if (!project.hasProperty('keystore_location'))
+    ext.keystore_location = '.'
+
+if (!project.hasProperty('keystore_alias'))
+    ext.keystore_alias = ''
+
+if (!project.hasProperty('keystore_password'))
+    ext.keystore_password = ''
+
+task signJars(dependsOn: ['reobf', 'devJar', 'sourceJar', 'apiJar']) {
+    inputs.dir jar.destinationDir
+    inputs.file keystore_location
+    inputs.property 'keystore_alias', keystore_alias
+    inputs.property 'keystore_password', keystore_password
+    outputs.dir jar.destinationDir
+
+    onlyIf {
+        return keystore_location != '.'
+    }
+
+    doLast {
+        jar.destinationDir.eachFile { file ->
+            if (!file.getPath().endsWith('.jar'))
+                return;
+
+            logger.lifecycle "signing ${file}"
+            ant.signjar(
+                    destDir: file.getParentFile(),
+                    jar: file,
+                    keystore: keystore_location,
+                    alias: keystore_alias,
+                    storepass: keystore_password
+            )
+        }
+    }
+}
+
+if (!project.hasProperty('release_location'))
+    ext.release_location = '.'
+else
+    ext.release_location = release_location.replace('{modid}', project.modid).replace('{mcversion}', project.version_minecraft).replace('{version}', version)
+
+task release(dependsOn: 'signJars', type: Copy) {
+    from project.tasks.jar.destinationDir
+    into project.file(project.release_location)
+
+    eachFile { file ->
+        logger.lifecycle "copying ${file}"
+    }
+
+    onlyIf {
+        return project.release_location != '.'
+    }
+}
