@@ -1,38 +1,22 @@
-## .gitignore ##
-# ignore all
-*
-*/
+# eclipse
+bin
+.settings
+.metadata
+.classpath
+.project
+logs
 
-# allow any
-!/BnnWidget
-!/src
-!/src/
-!/gradle
-!/gradle/
-!/lib
-!/lib/
-!/libs
-!/libs/
-!/annotations
-!/annotations/
-!/version
-!/version/
-!/info
-!/info/
-!/build.gradle
-!/settings.gradle
-!/gradle.properties
-!/install.bat
-!/Release.bat
-!/gradlew
-!/gradlew.bat
-!/build.bat
-!/LICENSE
-!/LICENSE.md
-!/README
-!/README.md
-!/CONTRIBUTING
-!/CONTRIBUTING.md
-!/.gitignore
-!/.gitmodules
-!/.gitattributes
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+# Files from Forge MDK
+forge*changelog.txt
+/changelog.txt
+/CREDITS-fml.txt
+/LICENSE-fml.txt
+/README.txt

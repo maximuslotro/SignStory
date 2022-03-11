@@ -1,0 +1,34 @@
+{
+	"gui.show":{
+		"category":"player",
+		"sounds":[
+			{
+				"name": "gui/show"
+			}
+		]
+	},
+	"gui.screenshot":{
+		"category":"player",
+		"sounds":[
+			{
+				"name": "gui/screenshot"
+			}
+		]
+	},
+	"gui.confirm":{
+		"category":"player",
+		"sounds":[
+			{
+				"name": "gui/confirm"
+			}
+		]
+	},
+		"gui.mouseover":{
+		"category":"player",
+		"sounds":[
+			{
+				"name": "gui/mouseover"
+			}
+		]
+	}
+}

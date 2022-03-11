@@ -1,0 +1,27 @@
+{
+	"modListVersion": 2,
+	"modList": [
+		{
+			"modid": "signpic",
+			"name": "SignStory",
+			"description": "The sign tells us how beautiful it is, With Stories!",
+			"mcversion": "${mcversion}",
+			"version": "${version}",
+			"authorList": [
+				"Kamesuta",
+				"sjcl",
+				"Maximuslotro"
+			],
+			"credits": "2016 TeamFruit",
+			"dependants": [],
+			"dependencies": ["Forge@[${minforgeversion},)"],
+			"parent": "",
+			"requiredMods": ["Forge@[${minforgeversion},)"],
+			"logoFile": "assets/signpic/textures/logo.png",
+			"screenshots": [],
+			"updateUrl": "https://github.com/Team-Fruit/SignPicture/releases",
+			"url": "https://github.com/Team-Fruit/SignPicture/releases",
+			"useDependencyInformation": false
+		}
+	]
+}
