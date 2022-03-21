@@ -21,11 +21,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
-import com.kamesuta.mc.signpic.command.CommandImage;
-import com.kamesuta.mc.signpic.command.CommandVersion;
-import com.kamesuta.mc.signpic.command.RootCommand;
+import com.kamesuta.mc.signpic.command.BaseCommand;
 import com.kamesuta.mc.signpic.gui.GuiMain;
-import com.kamesuta.mc.signpic.plugin.DebugCommand;
 import com.kamesuta.mc.signpic.render.CustomTileEntitySignRenderer;
 
 import cpw.mods.fml.client.FMLClientHandler;
@@ -69,14 +66,7 @@ public class Client {
 	public static @Nullable String name;
 	public static @Nullable String token;
 
-	public static @Nullable RootCommand rootCommand;
-
-	static {
-		final RootCommand cmd = rootCommand = new RootCommand();
-		cmd.addChildCommand(new CommandVersion());
-		cmd.addChildCommand(new CommandImage());
-		cmd.addChildCommand(new DebugCommand());//TODO 出荷前にコメントアウト
-	}
+	public static @Nullable BaseCommand baseCommand;
 
 	public static void openEditor() {
 		mc.displayGuiScreen(new GuiMain(mc.currentScreen));

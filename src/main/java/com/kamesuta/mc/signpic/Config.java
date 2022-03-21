@@ -77,7 +77,7 @@ public final class Config extends Configuration {
 	public final @Nonnull ConfigProperty<Integer> contentSyncTick = propertyInteger(get("Content", "SyncLoadIntervalTick", 0)).setComment("ticks of Sync process interval (A drawing thread, affects the behavior. Please increase the value if the operation is heavy.) such as Gl Texture Uploading");
 	public final @Nonnull ConfigProperty<Integer> contentMaxRetry = propertyInteger(get("Content", "MaxRetry", 3)).setComment("limit of retry count. 0 is infinity.");
 
-	public final @Nonnull ConfigProperty<Boolean> informationNotice = propertyBoolean(get("Version", "Notice", true));
+	public final @Nonnull ConfigProperty<Boolean> informationNotice = propertyBoolean(get("Version", "Notice", false));
 	public final @Nonnull ConfigProperty<Boolean> informationJoinBeta;
 	public final @Nonnull ConfigProperty<Boolean> informationUpdateGui = propertyBoolean(get("Version", "UpdateGui", true));
 	public final @Nonnull ConfigProperty<Boolean> informationTryNew = propertyBoolean(get("Version", "TryNew", false));

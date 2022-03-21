@@ -21,7 +21,6 @@ public class ConfigGui extends GuiConfig {
 		super(parent, getConfigElements(), Reference.MODID, false, false, GuiConfig.getAbridgedConfigPath(Config.getConfig().getFilePath()));
 	}
 
-	@SuppressWarnings("rawtypes")
 	private static @Nonnull List<IConfigElement> getConfigElements() {
 		final List<IConfigElement> list = new ArrayList<IConfigElement>();
 

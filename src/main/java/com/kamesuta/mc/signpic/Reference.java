@@ -3,8 +3,8 @@ package com.kamesuta.mc.signpic;
 import javax.annotation.Nonnull;
 
 public class Reference {
-	public static final @Nonnull String MODID = "signpic";
-	public static final @Nonnull String NAME = "SignPicture";
+	public static final @Nonnull String MODID = "signstory";
+	public static final @Nonnull String NAME = "SignStory";
 	public static final @Nonnull String VERSION = "${version}";
 	public static final @Nonnull String FORGE = "${forgeversion}";
 	public static final @Nonnull String MINECRAFT = "${mcversion}";

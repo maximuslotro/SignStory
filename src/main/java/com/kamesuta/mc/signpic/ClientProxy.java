@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.annotation.Nonnull;
 
+import com.kamesuta.mc.signpic.command.SignStoryCommand;
 import com.kamesuta.mc.signpic.render.CustomItemSignRenderer;
 import com.mojang.util.UUIDTypeAdapter;
 
@@ -63,7 +64,11 @@ public class ClientProxy extends CommonProxy {
 
 		// Event Register
 		Client.handler.init();
-		ClientCommandHandler.instance.registerCommand(Client.rootCommand);
+		try {
+        	ClientCommandHandler.instance.registerCommand(new SignStoryCommand());
+        } catch (Exception e) {
+        	System.out.println("error registering one or more commands"+e);
+        }
 	}
 
 	@Override
