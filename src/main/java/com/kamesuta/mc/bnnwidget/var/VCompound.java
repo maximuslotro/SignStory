@@ -6,19 +6,11 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.Sets;
 
-/**
- * 複数の値を足した値
- *
- * @author TeamFruit
- */
+
 public class VCompound implements VCommon {
-	/**
-	 * ベースとなる値
-	 */
+
 	protected @Nonnull VCommon coord;
-	/**
-	 * 足す値
-	 */
+
 	protected final @Nonnull Set<VCommon> coords;
 
 	public VCompound(final @Nonnull VCommon a, final @Nonnull VCommon... b) {

@@ -3,6 +3,7 @@ package com.kamesuta.mc.signpic.entry;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.kamesuta.mc.signpic.Config;
 import com.kamesuta.mc.signpic.attr.AttrWriters;
 import com.kamesuta.mc.signpic.entry.content.ContentId;
 
@@ -48,6 +49,9 @@ public class EntryIdBuilder {
 	}
 
 	public @Nonnull EntryId build() {
-		return EntryId.from("#"+ContentId.from(getURI()).getID()+getMeta().compose());
+		if(Config.getConfig().defaultUsage.get()==false) {
+			return EntryId.from(ContentId.from(getURI()).getID());
+		}else {
+		return EntryId.from("#"+ContentId.from(getURI()).getID()+getMeta().compose());}
 	}
 }

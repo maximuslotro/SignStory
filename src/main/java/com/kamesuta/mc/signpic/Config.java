@@ -49,7 +49,9 @@ public final class Config extends Configuration {
 
 	public final @Nonnull ConfigProperty<String> signpicDir = propertyString(get("General", "SignpicDir", "").setRequiresMcRestart(true));
 	public final @Nonnull ConfigProperty<Boolean> signTooltip = propertyBoolean(get("General", "SignToolTip", false)).setComment("add tooltip line to sign");
+	public final @Nonnull ConfigProperty<Boolean> defaultUsage = propertyBoolean(get("General", "DefaultUsage", true));
 
+	
 	public final @Nonnull ConfigProperty<Integer> imageWidthLimit = propertyInteger(get("Image", "WidthLimit", 512)).setListener(new ConfigListener<Integer>() {
 		@Override
 		public void onChanged(@Nonnull final Integer value) {

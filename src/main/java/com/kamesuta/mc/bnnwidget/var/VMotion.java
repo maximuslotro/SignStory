@@ -7,15 +7,9 @@ import com.kamesuta.mc.bnnwidget.motion.CompoundMotion;
 import com.kamesuta.mc.bnnwidget.motion.ICompoundMotion;
 import com.kamesuta.mc.bnnwidget.motion.IMotion;
 
-/**
- * 動きのある値
- *
- * @author TeamFruit
- */
+
 public class VMotion extends VBase implements ICompoundMotion {
-	/**
-	 * 動き
-	 */
+
 	protected final @Nonnull CompoundMotion compoundMotion;
 
 	public VMotion(final float coord, final @Nonnull VType type) {

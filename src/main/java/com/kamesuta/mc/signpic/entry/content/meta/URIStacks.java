@@ -25,10 +25,6 @@ public class URIStacks {
 		return this.end;
 	}
 
-	/**
-	 * First - Endpoint,
-	 * Last - Basepoint
-	 */
 	public @Nonnull List<URI> getRedirectTrace() {
 		return this.uristack;
 	}

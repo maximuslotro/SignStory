@@ -11,6 +11,7 @@ import org.lwjgl.util.Timer;
 import com.google.common.collect.Lists;
 import com.kamesuta.mc.bnnwidget.render.WRenderer;
 import com.kamesuta.mc.signpic.Client;
+import com.kamesuta.mc.signpic.Config;
 import com.kamesuta.mc.signpic.CoreEvent;
 import com.kamesuta.mc.signpic.CoreInvoke;
 import com.kamesuta.mc.signpic.gui.GuiHub;
@@ -74,7 +75,10 @@ public class KeyHandler {
 			@Override
 			public void onKeyInput(final @Nonnull InputEvent event, final @Nonnull KeyBinding binding) {
 				if (Client.mc.currentScreen==null&&binding.isPressed())
-					Client.mc.displayGuiScreen(new GuiHub(Client.mc.currentScreen));
+					if(Config.getConfig().defaultUsage.get()==true) {
+						Client.mc.displayGuiScreen(new GuiHub(Client.mc.currentScreen));
+						}
+					
 			}
 		},
 		;

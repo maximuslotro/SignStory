@@ -3,6 +3,8 @@ package com.kamesuta.mc.signpic.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kamesuta.mc.signpic.util.ChatUtil;
+
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
@@ -22,7 +24,9 @@ public class BaseCommand implements ICommand {
 	public String getCommandName() {
 		return null;
 	}
-
+	public void chatUsage(final ICommandSender sender) {
+		ChatUtil.chatError(sender, getCommandUsage(sender));
+	}
 	public String getCommandUsage() {
 		return null;
 	}
@@ -62,7 +66,11 @@ public class BaseCommand implements ICommand {
 	public boolean tabCompleteNames() {
 		return false;
 	}
-
+	
+	public List tabCompleteUsernames(final String[] args) {
+		return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+	}
+	
 	@Override
 	public List addTabCompletionOptions(final ICommandSender s, final String[] args) {
 		return null;

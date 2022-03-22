@@ -37,6 +37,11 @@ idea {
     }
 }
 
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
 configurations {
     shade
     compile.extendsFrom shade
