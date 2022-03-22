@@ -7,15 +7,32 @@ import java.util.regex.Pattern;
 
 public class WordUtil {
 	
-	public static String Splitter(String text, int line_length, int row_n_combine) {
+	public static List<String> Splitter(String text, int line_length, int row_n_combine) {
 		List<String> Lines_unformatted = splitString(text, line_length);
 		List<String> Lines_formatted = addspaces(Lines_unformatted, line_length);
 		List<String> Lines_combined = combinelines(Lines_formatted, row_n_combine);
-		return null;
+		return Lines_combined;
 		}
 	private static List<String> combinelines(List<String> f_lines, int n_row){
-		for (int i = 0; i < uf_lines.size(); i++)
-		return null;
+		List<String> combined = new ArrayList<>();
+		int line_e = 0;
+		int line_n = 0;
+		for (int i = 0; i < f_lines.size(); i++) {
+			if (line_e<=n_row) {
+				if(line_e==0) {
+					combined.add(line_n, f_lines.get(i)); line_e++;
+				}else {
+					combined.add(line_n, combined.get(line_n)+f_lines.get(i)); line_e++;
+					}
+				if(line_e>=(n_row)) {
+					System.out.println(combined);
+					line_n++;
+					line_e=0;
+				}
+			}
+			
+		}
+		return combined;
 	}
 	
 	private static List<String> addspaces(List<String> uf_lines, int linesize) {

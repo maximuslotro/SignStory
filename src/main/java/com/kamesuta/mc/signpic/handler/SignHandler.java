@@ -11,6 +11,7 @@ import com.google.common.collect.Sets;
 import com.kamesuta.mc.signpic.Client;
 import com.kamesuta.mc.signpic.Config;
 import com.kamesuta.mc.signpic.CoreEvent;
+import com.kamesuta.mc.signpic.Global_Vars;
 import com.kamesuta.mc.signpic.Log;
 import com.kamesuta.mc.signpic.attr.AttrReaders;
 import com.kamesuta.mc.signpic.attr.prop.OffsetData;
@@ -26,6 +27,8 @@ import com.kamesuta.mc.signpic.mode.CurrentMode;
 import com.kamesuta.mc.signpic.preview.SignEntity;
 import com.kamesuta.mc.signpic.reflect.lib.ReflectClass;
 import com.kamesuta.mc.signpic.reflect.lib.ReflectField;
+import com.kamesuta.mc.signpic.util.ChatBuilder;
+import com.kamesuta.mc.signpic.util.ChatUtil;
 import com.kamesuta.mc.signpic.util.Sign;
 
 import net.minecraft.client.gui.inventory.GuiEditSign;
@@ -70,7 +73,9 @@ public class SignHandler {
 						if (tileSign!=null) {
 							Sign.placeSign(placeSign, tileSign);
 							if (!CurrentMode.instance.isState(CurrentMode.State.CONTINUE)) {
-								CurrentMode.instance.setMode();
+								if(Config.getConfig().defaultUsage.get()==true) {
+									CurrentMode.instance.setMode();
+									}
 								final SignEntity se = Sign.preview;
 								if (se.isRenderable()) {
 									final TileEntitySign preview = se.getTileEntity();
@@ -78,6 +83,17 @@ public class SignHandler {
 										se.setVisible(false);
 										CurrentMode.instance.setState(CurrentMode.State.PREVIEW, false);
 										CurrentMode.instance.setState(CurrentMode.State.SEE, false);
+									}
+									if(Config.getConfig().defaultUsage.get()==false) {
+										Global_Vars.CurrentPage++;
+										if(Global_Vars.CurrentPage>Global_Vars.Text.size()) {
+											Global_Vars.CurrentPage=Global_Vars.Text.size();
+											ChatBuilder.chatClient(ChatBuilder.create("Page limit reached!"));
+										}
+										if(Global_Vars.CurrentPage==Global_Vars.Text.size()) {
+											ChatBuilder.chatClient(ChatBuilder.create("End of Text Reached!"));
+
+										}
 									}
 								}
 							}

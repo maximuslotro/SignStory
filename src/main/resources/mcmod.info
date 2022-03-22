@@ -2,7 +2,7 @@
 	"modListVersion": 2,
 	"modList": [
 		{
-			"modid": "signpic",
+			"modid": "signstory",
 			"name": "SignStory",
 			"description": "The sign tells us how beautiful it is, With Stories!",
 			"mcversion": "${mcversion}",
