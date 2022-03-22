@@ -19,6 +19,7 @@ import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.ChatStyle;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
 
@@ -125,6 +126,9 @@ public class ChatBuilder {
 
 	public static @Nonnull ChatBuilder create(final @Nonnull String text) {
 		return new ChatBuilder().setText(text);
+	}
+	public static @Nonnull ChatBuilder createcolor(final @Nonnull String text,final @Nullable EnumChatFormatting color) {
+		return new ChatBuilder().setText(text).setStyle(new ChatStyle().setColor(color));
 	}
 
 	@SideOnly(Side.CLIENT)

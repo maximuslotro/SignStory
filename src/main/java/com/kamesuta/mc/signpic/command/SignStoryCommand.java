@@ -2,7 +2,7 @@ package com.kamesuta.mc.signpic.command;
 
 import java.util.List;
 
-
+import com.kamesuta.mc.signpic.entry.EntryId;
 import com.kamesuta.mc.signpic.entry.content.ContentId;
 import com.kamesuta.mc.signpic.mode.CurrentMode;
 import com.kamesuta.mc.signpic.util.ChatUtil;
@@ -22,7 +22,7 @@ public class SignStoryCommand extends BaseCommand{
 	}
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return "/SignStory <place_sign, load_text, toggle_functionality>";
+		return "/SignStory <place_sign, load_text, select_page, toggle_functionality>";
 	}
 	@Override
 	public void processCommand(ICommandSender s, String[] args) {
@@ -53,15 +53,16 @@ public class SignStoryCommand extends BaseCommand{
 		}
 		else if (args[0].toLowerCase().startsWith("s")) {
 			if(Global_Vars.Text!=null) {
-				if (MathUtil.isInt(args[1])) {
+				if (!MathUtil.isInt(args[1])) {
+					ChatUtil.chatConfirm(s, "Select a page: 0 to "+Global_Vars.Text.size()+", to place");
+					ChatUtil.chatConfirm(s, "Use (/SignStory select_page #) to select a page");
+				}else {
 					if(Integer.parseInt(args[1])<= Global_Vars.Text.size()&&Integer.parseInt(args[1])> -1) {
 						Global_Vars.CurrentPage =Integer.parseInt(args[1]);
 						GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
 					}else {
 						ChatUtil.chatError(s, "Page Number is too large or small!");
 					}
-				}else {
-					ChatUtil.chatError(s, "Page Number must be a number!");
 				}
 			}else {	
 				ChatUtil.chatError(s, "No Text loaded first");
@@ -72,14 +73,19 @@ public class SignStoryCommand extends BaseCommand{
 			Boolean config = Config.getConfig().defaultUsage.get();
 			Config.getConfig().defaultUsage.set(!config);
 			if(!config){
-				ChatUtil.chatNotify(s, "Enabled SignPicture Usage");
+				ChatUtil.chatConfirm(s, "Enabled SignPicture Usage");
 				ChatUtil.chatError(s, "Disabled SignStory Usage");
 				CurrentMode.instance.setMode(CurrentMode.Mode.NONE);
 				CurrentMode.instance.setState(CurrentMode.State.PREVIEW, false);
+				GuiMain.setContentId(EntryId.blank);
+
 			}
 			else { 
 				ChatUtil.chatError(s, "Disabled SignPicture Usage");
-				ChatUtil.chatNotify(s, "Enabled SignStory Usage");
+				ChatUtil.chatConfirm(s, "Enabled SignStory Usage");
+				ChatUtil.chatNotify(s, "Use (/SignStory load_text) to load text");
+				CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
+				GuiMain.setContentId(EntryId.blank);
 			}
 		}
 		else { chatUsage(s); }
@@ -90,7 +96,7 @@ public class SignStoryCommand extends BaseCommand{
 			return CommandBase.getListOfStringsMatchingLastWord(args, "place_sign", "load_text", "select_page", "toggle_functionality");
 		} else if (args.length == 2) {
 			if (args[0].toLowerCase().startsWith("s")) {
-				return CommandBase.getListOfStringsMatchingLastWord(args, "Select a page: 0 to "+Global_Vars.Text.size()+", to place");
+				return CommandBase.getListOfStringsMatchingLastWord(args, "");
 			}
 		}
 		return null;
