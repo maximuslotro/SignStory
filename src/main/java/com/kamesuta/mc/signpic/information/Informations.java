@@ -142,9 +142,9 @@ public final class Informations {
 	}
 
 	public boolean isUpdateRequired() {
-		final InfoSource source = getSource();
-		if (source!=null)
-			return !StringUtils.equals(Reference.VERSION, "${version}")&&source.onlineVersion().compare(VersionClient);
+		//final InfoSource source = getSource();
+		//if (source!=null)
+		//	return !StringUtils.equals(Reference.VERSION, "${version}")&&source.onlineVersion().compare(VersionClient);
 		return false;
 	}
 
