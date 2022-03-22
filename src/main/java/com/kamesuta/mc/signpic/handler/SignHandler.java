@@ -21,6 +21,7 @@ import com.kamesuta.mc.signpic.entry.EntryId;
 import com.kamesuta.mc.signpic.entry.EntryId.ItemEntryId;
 import com.kamesuta.mc.signpic.entry.EntryId.SignEntryId;
 import com.kamesuta.mc.signpic.entry.content.ContentId;
+import com.kamesuta.mc.signpic.gui.GuiMain;
 import com.kamesuta.mc.signpic.gui.GuiSignOption;
 import com.kamesuta.mc.signpic.http.shortening.ShortenerApiUtil;
 import com.kamesuta.mc.signpic.mode.CurrentMode;
@@ -86,6 +87,7 @@ public class SignHandler {
 									}
 									if(Config.getConfig().defaultUsage.get()==false) {
 										Global_Vars.CurrentPage++;
+										GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
 										if(Global_Vars.CurrentPage>Global_Vars.Text.size()) {
 											Global_Vars.CurrentPage=Global_Vars.Text.size();
 											ChatBuilder.chatClient(ChatBuilder.create("Page limit reached!"));
