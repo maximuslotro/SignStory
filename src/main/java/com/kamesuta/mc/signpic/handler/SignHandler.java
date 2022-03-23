@@ -88,15 +88,15 @@ public class SignHandler {
 									if(Config.getConfig().defaultUsage.get()==false) {
 										ChatBuilder.chatClient(ChatBuilder.createcolor("Placed Page: "+Global_Vars.CurrentPage, EnumChatFormatting.GOLD));
 										Global_Vars.CurrentPage++;
-										GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
-										if(Global_Vars.CurrentPage>Global_Vars.Text.size()) {
-											Global_Vars.CurrentPage=Global_Vars.Text.size();
-											ChatBuilder.chatClient(ChatBuilder.createcolor("Page limit reached!", EnumChatFormatting.RED));
-										}
-										if(Global_Vars.CurrentPage==Global_Vars.Text.size()) {
+										if(Global_Vars.CurrentPage==(Global_Vars.Text.size()-1)) {
 											ChatBuilder.chatClient(ChatBuilder.createcolor("One More Page!", EnumChatFormatting.GREEN));
-
 										}
+										if(Global_Vars.CurrentPage>(Global_Vars.Text.size()-1)) {
+											Global_Vars.CurrentPage=(Global_Vars.Text.size()-1);
+											ChatBuilder.chatClient(ChatBuilder.createcolor("End of Text Reached!", EnumChatFormatting.GREEN));
+											ChatBuilder.chatClient(ChatBuilder.createcolor("Page Set Back to Final Page", EnumChatFormatting.GOLD));
+										}
+										GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
 									}
 								}
 							}

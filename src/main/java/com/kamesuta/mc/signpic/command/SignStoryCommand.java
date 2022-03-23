@@ -47,7 +47,7 @@ public class SignStoryCommand extends BaseCommand{
 				
 		} 
 		else if (args[0].toLowerCase().startsWith("l")) {
-			String text = "North of 53. A magic phrase. Spoken, mumbled or thought inwardly by thousands of souls venturing northward. An imaginary line, shown only on maps and labelled 53 degrees. It's presence indicated to highway travellers by road side signs. A division of territory as distinct in the mind as any international border. If you have not been North of 53, you have not been north!";
+			String text = "If you have not been North of 53, you have not been north!";
 			Global_Vars.Text = WordUtil.Splitter(text, 15, 4);
 			ChatUtil.chatNotify(s, "Text Set");
 		}
@@ -57,7 +57,7 @@ public class SignStoryCommand extends BaseCommand{
 					ChatUtil.chatConfirm(s, "Select a page: 0 to "+Global_Vars.Text.size()+", to place");
 					ChatUtil.chatConfirm(s, "Use (/SignStory select_page #) to select a page");
 				}else {
-					if(Integer.parseInt(args[1])<= Global_Vars.Text.size()&&Integer.parseInt(args[1])> -1) {
+					if(Integer.parseInt(args[1])<=(Global_Vars.Text.size()-1)&&Integer.parseInt(args[1])> -1) {
 						Global_Vars.CurrentPage =Integer.parseInt(args[1]);
 						GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
 					}else {
