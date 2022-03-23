@@ -4,23 +4,23 @@
 		{
 			"modid": "signstory",
 			"name": "SignStory",
-			"description": "The sign tells us how beautiful it is, With Stories!" This is a Modified build of the SignPicture mod. All credits for the base mod go to the original authors.,
+			"description": "The sign tells us how beautiful it is, With Stories!" This mod uses a Modified build of the SignPicture mod. All credits for that mod go to the original authors.,
 			"mcversion": "${mcversion}",
 			"version": "${version}",
 			"authorList": [
 				"Kamesuta",
 				"sjcl",
-				"Maximuslotro"
+				"maximuslotro"
 			],
-			"credits": "2016 TeamFruit",
+			"credits": "2016 TeamFruit, 2022 maximuslotro",
 			"dependants": [],
 			"dependencies": ["Forge@[${minforgeversion},)"],
 			"parent": "",
 			"requiredMods": ["Forge@[${minforgeversion},)"],
 			"logoFile": "assets/signpic/textures/logo.png",
 			"screenshots": [],
-			"updateUrl": "https://github.com/Team-Fruit/SignPicture/releases",
-			"url": "https://github.com/Team-Fruit/SignPicture/releases",
+			"updateUrl": "https://github.com/maximuslotro/SignStory/releases",
+			"url": "https://github.com/maximuslotro/SignStory/releases",
 			"useDependencyInformation": false
 		}
 	]

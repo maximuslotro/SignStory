@@ -54,11 +54,11 @@ public class SignStoryCommand extends BaseCommand{
 		else if (args[0].toLowerCase().startsWith("s")) {
 			if(Global_Vars.Text!=null) {
 				if (!MathUtil.isInt(args[1])) {
-					ChatUtil.chatConfirm(s, "Select a page: 0 to "+Global_Vars.Text.size()+", to place");
+					ChatUtil.chatConfirm(s, "Select a page: 0 to "+(Global_Vars.Text.size()-1)+", to place");
 					ChatUtil.chatConfirm(s, "Use (/SignStory select_page #) to select a page");
 				}else {
-					if(Integer.parseInt(args[1])<=(Global_Vars.Text.size()-1)&&Integer.parseInt(args[1])> -1) {
-						Global_Vars.CurrentPage =Integer.parseInt(args[1]);
+					if(Integer.valueOf(args[1])<=(Global_Vars.Text.size()-1)&&Integer.valueOf(args[1])> -1) {
+						Global_Vars.CurrentPage =Integer.valueOf(args[1]);
 						GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
 					}else {
 						ChatUtil.chatError(s, "Page Number is too large or small!");
