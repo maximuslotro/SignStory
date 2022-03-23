@@ -11,7 +11,7 @@
 </p>
 
 # Sign Story
-![Minecraft 1.7.10](https://img.shields.io/badge/Minecraft-1.7.10-yellow.svg?style=flat)
+![Minecraft 1.7.10](https://img.shields.io/badge/Minecraft-1.7.10-green.svg?style=flat)
 
 ## Table of Contents
 
