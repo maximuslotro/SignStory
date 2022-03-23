@@ -35,9 +35,9 @@ Ever wanted to place many signs in a row with text being supplied from a txt fil
 * Text and Translations
   - [![License](https://img.shields.io/badge/License-No%20Restriction-green.svg?style=flat)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-//## Downloads
+## Downloads
 
-//Downloads can be found on [github](https://github.com/maximuslotr/SignStory/releases).
+Downloads can be found on [github](https://github.com/maximuslotr/SignStory/releases).
 
 ## Installation
 
