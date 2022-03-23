@@ -4,7 +4,7 @@
 		{
 			"modid": "signstory",
 			"name": "SignStory",
-			"description": "The sign tells us how beautiful it is, With Stories!" This mod uses a Modified build of the SignPicture mod. All credits for that mod go to the original authors.,
+			"description": "The sign tells us how beautiful it is, With Stories! This mod uses a Modified build of the SignPicture mod. All credits for that mod go to the original authors.",
 			"mcversion": "${mcversion}",
 			"version": "${version}",
 			"authorList": [

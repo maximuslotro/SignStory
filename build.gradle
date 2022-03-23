@@ -48,8 +48,8 @@ configurations {
 }
 
 minecraft {
-    srgExtra "PK: org/apache/http/entity/mime com/kamesuta/mc/signpic/lib/org/apache/http/entity/mime"
-    srgExtra "PK: org/apache/http/entity/mime/content com/kamesuta/mc/signpic/lib/org/apache/http/entity/mime/content"
+    srgExtra "PK: org/apache/http/entity/mime com/maximuslotro/mc/signpic/lib/org/apache/http/entity/mime"
+    srgExtra "PK: org/apache/http/entity/mime/content com/maximuslotro/mc/signpic/lib/org/apache/http/entity/mime/content"
 
     version = "${project.version_minecraft}-${project.version_forge}"
 
