@@ -34,7 +34,7 @@ public class Log {
 		protected boolean isEnabled(final @Nullable Level level, final @Nullable Marker marker, final @Nullable Message data, final @Nullable Throwable t) {
 			return isEnabled();
 		}
-
+		
 		@Override
 		protected boolean isEnabled(final @Nullable Level level, final @Nullable Marker marker, final @Nullable Object data, final @Nullable Throwable t) {
 			return isEnabled();
@@ -60,6 +60,9 @@ public class Log {
 			if (isEnabled()&&data!=null)
 				this.logger.log(level, marker, "[DEBUG] "+data.getFormattedMessage(), t);
 		}
+	}
+	public static void logDefault(String message) {
+		Log.log.info(String.format("[SignStory] "+message));
 	}
 
 	@SuppressWarnings("deprecation")

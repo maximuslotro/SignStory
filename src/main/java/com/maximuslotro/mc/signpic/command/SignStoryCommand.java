@@ -51,7 +51,7 @@ public class SignStoryCommand extends BaseCommand{
 			String text = "If you have not been North of 53, you have not been north!";
 			Global_Vars.Text = WordUtil.Splitter(text, 15, 4);
 			ChatUtil.chatNotify(s, "Text Set");
-			Log.log.info(String.format("Text Set from String"));
+			Log.logDefault("Text Set from String");
 		}
 		else if (args[0].toLowerCase().startsWith("s")) {
 			if(Global_Vars.Text!=null) {
