@@ -171,6 +171,7 @@ public class Debug {
 
 		System.out.println(response.getStatusLine());
 		System.out.println(convertStreamToString(stream));
+		stream.close();
 
 	}
 }
