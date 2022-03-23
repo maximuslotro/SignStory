@@ -18,36 +18,25 @@ public class WordUtil {
 		}
 	private static List<String> combinelines(List<String> f_lines, int n_row, int linesize){
 		List<String> combined = new ArrayList<>();
-		System.out.println("Size: "+f_lines.size());
 		int line_e = 0;
 		int line_n = 0;
 		for (int i = 0; i < f_lines.size(); i++) {
 			if (line_e<=n_row) {
 				if(line_e==0) {
-					System.out.println(line_e+":Initial");
 					combined.add(line_n, f_lines.get(i)); 
 					line_e=line_e+1;
-					System.out.println(line_e+":InitialAdd");
-					System.out.println(line_n+":"+combined.get(line_n));
 				}else {
-					System.out.println(line_e+":AddBefore");
 					combined.set(line_n, combined.get(line_n)+f_lines.get(i)); 
 					line_e=line_e+1;
-					System.out.println(line_e+":AddAfter");
-					System.out.println(line_n+":"+combined.get(line_n));
 					}
 				if(line_e>=(n_row)) {
-					System.out.println(line_e+":LastRowB");
-					System.out.println(combined);
 					line_n=line_n+1;
 					line_e=0;
-					System.out.println(line_e+":LastRowA");
 				}
 
 			}
 			
 		}
-		System.out.println(combined.get(line_n));
 		StringBuilder builder = new StringBuilder(combined.get(line_n));
 		while (builder.length() < linesize*n_row) {
 		    builder.append(" ");
@@ -55,9 +44,6 @@ public class WordUtil {
 		builder.setLength(linesize*n_row);
 		String result = builder.toString();
 		combined.set(line_n, result);
-		System.out.println(line_n+":"+combined.get(line_n));
-		System.out.println(combined);
-		System.out.println("Size: "+combined.size());
 		return combined;
 	}
 	
@@ -69,7 +55,6 @@ public class WordUtil {
 			}
 			builder.setLength(linesize);
 			String result = builder.toString();
-			System.out.println(result);
 			uf_lines.set(i, result);
         }
 		return uf_lines;
@@ -84,7 +69,6 @@ public class WordUtil {
         Matcher m = p.matcher(msg);
         while(m.find()) {
         	res.add(m.group());
-        	System.out.println(m.group());
         }
         return res;
     }

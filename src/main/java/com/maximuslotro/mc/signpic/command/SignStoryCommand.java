@@ -11,6 +11,7 @@ import com.maximuslotro.mc.signpic.util.MathUtil;
 import com.maximuslotro.mc.signpic.gui.GuiMain;
 import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.Global_Vars;
+import com.maximuslotro.mc.signpic.Log;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
@@ -50,6 +51,7 @@ public class SignStoryCommand extends BaseCommand{
 			String text = "If you have not been North of 53, you have not been north!";
 			Global_Vars.Text = WordUtil.Splitter(text, 15, 4);
 			ChatUtil.chatNotify(s, "Text Set");
+			Log.log.info(String.format("Text Set from String"));
 		}
 		else if (args[0].toLowerCase().startsWith("s")) {
 			if(Global_Vars.Text!=null) {

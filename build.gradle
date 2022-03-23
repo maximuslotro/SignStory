@@ -52,15 +52,7 @@ minecraft {
     srgExtra "PK: org/apache/http/entity/mime/content com/maximuslotro/mc/signpic/lib/org/apache/http/entity/mime/content"
 
     version = "${project.version_minecraft}-${project.version_forge}"
-
-    if (project.hasProperty('version_mappings'))
-        mappings = project.version_mappings
-
-    if (!project.hasProperty('run_location'))
-        runDir = 'run'
-    else
-        runDir = run_location.replace('{modid}', project.modid).replace('{mcversion}', project.version_minecraft)
-
+    
     replaceIn 'Reference.java'
     replace '${modid}', project.modid
     replace '${modname}', project.modname
@@ -79,7 +71,6 @@ sourceSets {
         }
     }
 }
-
 processResources {
     // this will ensure that this task is redone when the versions change.
     inputs.property 'version', project.version
@@ -103,17 +94,12 @@ processResources {
     }
 }
 
+
 dependencies {
 	shade('org.apache.httpcomponents:httpmime:4.3.3'){transitive=false}
 }
 
-def commonManifest = {
-    if (project.hasProperty('extra_fmlcore'))
-        attributes 'FMLCorePlugin': project.extra_fmlcore
-    if (project.hasProperty('extra_fmlmod'))
-        attributes 'FMLCorePluginContainsFMLMod': project.extra_fmlcore
-    if (project.hasProperty('extra_fmlat'))
-        attributes 'FMLAT': project.extra_fmlat
+def commonManifest = { 
 }
 
 jar {
@@ -123,62 +109,6 @@ jar {
             exclude 'META-INF', 'META-INF/**'
         }
     }
-    classifier = project.hasProperty('extra_classifier') ? project.extra_classifier : 'universal'
     manifest commonManifest
 }
 
-
-if (!project.hasProperty('keystore_location'))
-    ext.keystore_location = '.'
-
-if (!project.hasProperty('keystore_alias'))
-    ext.keystore_alias = ''
-
-if (!project.hasProperty('keystore_password'))
-    ext.keystore_password = ''
-
-task signJars(dependsOn: ['reobf', 'devJar', 'sourceJar', 'apiJar']) {
-    inputs.dir jar.destinationDir
-    inputs.file keystore_location
-    inputs.property 'keystore_alias', keystore_alias
-    inputs.property 'keystore_password', keystore_password
-    outputs.dir jar.destinationDir
-
-    onlyIf {
-        return keystore_location != '.'
-    }
-
-    doLast {
-        jar.destinationDir.eachFile { file ->
-            if (!file.getPath().endsWith('.jar'))
-                return;
-
-            logger.lifecycle "signing ${file}"
-            ant.signjar(
-                    destDir: file.getParentFile(),
-                    jar: file,
-                    keystore: keystore_location,
-                    alias: keystore_alias,
-                    storepass: keystore_password
-            )
-        }
-    }
-}
-
-if (!project.hasProperty('release_location'))
-    ext.release_location = '.'
-else
-    ext.release_location = release_location.replace('{modid}', project.modid).replace('{mcversion}', project.version_minecraft).replace('{version}', version)
-
-task release(dependsOn: 'signJars', type: Copy) {
-    from project.tasks.jar.destinationDir
-    into project.file(project.release_location)
-
-    eachFile { file ->
-        logger.lifecycle "copying ${file}"
-    }
-
-    onlyIf {
-        return project.release_location != '.'
-    }
-}
