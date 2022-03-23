@@ -1,10 +1,5 @@
-# Sign Picture
+# Sign Story
 ![Minecraft 1.7.10](https://img.shields.io/badge/Minecraft-1.7.10-yellow.svg?style=flat)
-![Minecraft 1.8.9](https://img.shields.io/badge/Minecraft-1.8.9-green.svg?style=flat)
-![Minecraft 1.9.4](https://img.shields.io/badge/Minecraft-1.9.4-green.svg?style=flat)
-![Minecraft 1.10.2](https://img.shields.io/badge/Minecraft-1.10.2-green.svg?style=flat)
-![Minecraft 1.11](https://img.shields.io/badge/Minecraft-1.11-green.svg?style=flat)
-![Minecraft 1.11.2](https://img.shields.io/badge/Minecraft-1.11.2-green.svg?style=flat)
 
 ## Table of Contents
 
@@ -23,8 +18,8 @@ Ever wanted to place many signs in a row with text being supplied from a txt fil
 
 ## License
 * Sign Story
-* - (c) 2022 maximuslotro
-* - [![License](https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/maximuslotro/SignStory/main/LICENSE.md)
+  - (c) 2022 maximuslotro
+  - [![License](https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/maximuslotro/SignStory/main/LICENSE.md)
 * Sign Picture
   - (c) 2016 TeamFruit
   - [![License](https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/Team-Fruit/SignPicture/master/LICENSE.md)
