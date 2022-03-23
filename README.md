@@ -37,7 +37,7 @@ Ever wanted to place many signs in a row with text being supplied from a txt fil
 
 //## Downloads
 
-//Downloads can be found on [CurseForge](https://minecraft.curseforge.com/projects/sign-picture) or on the [github](https://github.com/Team-Fruit/SignPicture/releases).
+//Downloads can be found on [github](https://github.com/maximuslotr/SignStory/releases).
 
 ## Installation
 
