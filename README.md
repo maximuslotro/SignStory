@@ -1,3 +1,15 @@
+<p align="center">
+  <a href="https://github.com/maximuslotro/SignStory/releases" target="_blank">
+    <img alt="release" src="https://img.shields.io/github/v/release/maximuslotro/SignStory?color=56bcd3" />
+  </a>
+  <a href="https://github.com/maximuslotro/SignStory/releases" target="_blank">
+    <img alt="downloads" src="https://img.shields.io/github/downloads/maximuslotro/SignStory/total?color=56bcd3" />
+  </a>
+  <a href="https://github.com/maximuslotro/SignStory/main/LICENSE.md" target="_blank">
+    <img alt="license" src="https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat" />
+  </a>
+</p>
+
 # Sign Story
 ![Minecraft 1.7.10](https://img.shields.io/badge/Minecraft-1.7.10-yellow.svg?style=flat)
 
