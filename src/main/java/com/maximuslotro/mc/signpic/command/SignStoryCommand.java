@@ -9,6 +9,7 @@ import com.maximuslotro.mc.signpic.util.ChatUtil;
 import com.maximuslotro.mc.signpic.util.WordUtil;
 import com.maximuslotro.mc.signpic.util.MathUtil;
 import com.maximuslotro.mc.signpic.gui.GuiMain;
+import com.maximuslotro.mc.signpic.gui.file.McUiUpload;
 import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.Global_Vars;
 import com.maximuslotro.mc.signpic.Log;
@@ -48,10 +49,13 @@ public class SignStoryCommand extends BaseCommand{
 				
 		} 
 		else if (args[0].toLowerCase().startsWith("l")) {
-			String text = "If you have not been North of 53, you have not been north!";
-			Global_Vars.Text = WordUtil.Splitter(text, 15, 4);
-			ChatUtil.chatNotify(s, "Text Set");
-			Log.logDefault("Text Set from String");
+			if(Config.getConfig().defaultUsage.get()==false) {
+				//String text = "If you have not been North of 53, you have not been north!";
+				//Global_Vars.Text = WordUtil.Splitter(text, 15, 4);
+				McUiUpload.instance.setVisible(!McUiUpload.instance.isVisible());
+				ChatUtil.chatNotify(s, "Text Set");
+				Log.logDefault("Text Set from String");
+			}
 		}
 		else if (args[0].toLowerCase().startsWith("s")) {
 			if(Global_Vars.Text!=null) {

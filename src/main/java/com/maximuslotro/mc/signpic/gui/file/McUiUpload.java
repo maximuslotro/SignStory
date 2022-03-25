@@ -10,6 +10,7 @@ import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
 
 import com.maximuslotro.mc.signpic.Client;
+import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.http.upload.UploadApiUtil;
 import com.maximuslotro.mc.signpic.http.upload.UploadCallback;
 import com.maximuslotro.mc.signpic.http.upload.UploadRequest;
@@ -53,9 +54,16 @@ public class McUiUpload extends UiUpload {
 
 	@Override
 	protected void apply(final @Nonnull File f) {
-		if (UploadApiUtil.upload(UploadRequest.fromFile(f, new State()), UploadCallback.copyOnDone))
-			if (!CurrentMode.instance.isState(CurrentMode.State.CONTINUE))
-				close();
+		if(Config.getConfig().defaultUsage.get()) {
+			if (UploadApiUtil.upload(UploadRequest.fromFile(f, new State()), UploadCallback.copyOnDone)) {
+				if (!CurrentMode.instance.isState(CurrentMode.State.CONTINUE)) {
+					close();
+					}
+			}
+		}else {
+			FileUtilitiy.loadTextFile(f);
+			close();
+		}
 	}
 
 	public void setVisible(final boolean b) {

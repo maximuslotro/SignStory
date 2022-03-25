@@ -16,6 +16,7 @@ public class Locations {
 	public @Nonnull File metaDir;
 	public @Nonnull File modDir;
 	public @Nonnull File modFile;
+	public @Nonnull File textDir;
 
 	public Locations(final @Nonnull File modFile, final @Nonnull File mcdir) {
 		this.mcDir = mcdir;
@@ -27,6 +28,8 @@ public class Locations {
 		securementDirectory(this.cacheDir);
 		this.metaDir = new File(this.signpicDir, "meta");
 		securementDirectory(this.metaDir);
+		this.textDir = new File(this.signpicDir, "text");
+		securementDirectory(this.textDir);
 
 		this.modDir = new File(mcdir, "mods");
 		this.modFile = modFile;
