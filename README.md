@@ -130,7 +130,6 @@ Thanks to
 
 * Notch et al for Minecraft
 * Lex et al for MinecraftForge
-* Kamesuta, for SignPicture
-* Team-Fruit, for SignPicture
-* Team-Fruit, for Banana Widget 
+* Kamesuta, sjcl for [SignPicture](https://github.com/Team-Fruit/SignPicture)
+* Kamesuta, sjcl for [BnnWidget](https://github.com/Team-Fruit/BnnWidget/tree/351ee3e321502b7c51e60bdbbdb1a523299a78f1)
 * all [contributors](https://github.com/maximuslotro/SignStory/graphs/contributors)
