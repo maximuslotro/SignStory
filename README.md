@@ -26,7 +26,7 @@
 
 ## About
 
-Ever wanted to place many signs in a row with text being supplied from a txt file? Well look no further. This mod's aim is to allow users to create stories with signs in Minecraft.
+Ever wanted to place many signs in a row with text being supplied from a txt file? Well look no further. This mod's aim is to allow users to create stories with signs in Minecraft. It also perserves the origiinal SignPicture functions.
 
 ## License
 * Sign Story
