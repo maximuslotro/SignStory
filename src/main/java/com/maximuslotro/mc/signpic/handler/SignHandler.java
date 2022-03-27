@@ -30,6 +30,7 @@ import com.maximuslotro.mc.signpic.reflect.lib.ReflectClass;
 import com.maximuslotro.mc.signpic.reflect.lib.ReflectField;
 import com.maximuslotro.mc.signpic.util.ChatBuilder;
 import com.maximuslotro.mc.signpic.util.ChatUtil;
+import com.maximuslotro.mc.signpic.util.MathUtil;
 import com.maximuslotro.mc.signpic.util.Sign;
 
 import net.minecraft.client.gui.inventory.GuiEditSign;
@@ -86,7 +87,7 @@ public class SignHandler {
 										CurrentMode.instance.setState(CurrentMode.State.SEE, false);
 									}
 									if(Config.getConfig().defaultUsage.get()==false) {
-										ChatBuilder.chatClient(ChatBuilder.createcolor("Placed Page: "+Global_Vars.CurrentPage, EnumChatFormatting.GOLD));
+										ChatBuilder.chatClient(ChatBuilder.createcolor("Placed Page: "+Global_Vars.CurrentPage+" of "+(Global_Vars.Text.size()-1)+". "+MathUtil.round1(MathUtil.calculatePercentageToFloat(Global_Vars.CurrentPage, (Global_Vars.Text.size()-1)))+"%", EnumChatFormatting.GOLD));
 										Global_Vars.CurrentPage++;
 										if(Global_Vars.CurrentPage==(Global_Vars.Text.size()-1)) {
 											ChatBuilder.chatClient(ChatBuilder.createcolor("One More Page!", EnumChatFormatting.GREEN));

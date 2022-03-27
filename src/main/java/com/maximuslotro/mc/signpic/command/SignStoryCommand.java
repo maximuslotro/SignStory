@@ -37,7 +37,7 @@ public class SignStoryCommand extends BaseCommand{
 					ChatUtil.chatNotify(s, "Testing");
 					GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
 					CurrentMode.instance.setMode(CurrentMode.Mode.PLACE);
-					CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);		
+					CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
 					}else {	
 						ChatUtil.chatError(s, "No Text loaded first");
 						ChatUtil.chatError(s, "Use (/SignStory load_text) to load text");
@@ -55,20 +55,26 @@ public class SignStoryCommand extends BaseCommand{
 				McUiUpload.instance.setVisible(!McUiUpload.instance.isVisible());
 				ChatUtil.chatNotify(s, "Text Set");
 				Log.logDefault("Text Set from String");
-			}
+			}else {ChatUtil.chatError(s, "Please Enable SignStory First!");}
 		}
 		else if (args[0].toLowerCase().startsWith("s")) {
 			if(Global_Vars.Text!=null) {
-				if (!MathUtil.isInt(args[1])) {
+				if(args.length > 1) {
+					if (MathUtil.isInt(args[1])) {
+						if(Integer.valueOf(args[1])<=(Global_Vars.Text.size()-1)&&Integer.valueOf(args[1])> -1) {
+							Global_Vars.CurrentPage =Integer.valueOf(args[1]);
+							GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
+							ChatUtil.chatConfirm(s, "Set current page to: "+Global_Vars.CurrentPage);
+						}else {
+							ChatUtil.chatError(s, "Page Number is too large or small!");
+						}
+					}else {
+						ChatUtil.chatConfirm(s, "Select a page: 0 to "+(Global_Vars.Text.size()-1)+", to place");
+						ChatUtil.chatConfirm(s, "Use (/SignStory select_page #) to select a page");
+					}
+				}else {
 					ChatUtil.chatConfirm(s, "Select a page: 0 to "+(Global_Vars.Text.size()-1)+", to place");
 					ChatUtil.chatConfirm(s, "Use (/SignStory select_page #) to select a page");
-				}else {
-					if(Integer.valueOf(args[1])<=(Global_Vars.Text.size()-1)&&Integer.valueOf(args[1])> -1) {
-						Global_Vars.CurrentPage =Integer.valueOf(args[1]);
-						GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
-					}else {
-						ChatUtil.chatError(s, "Page Number is too large or small!");
-					}
 				}
 			}else {	
 				ChatUtil.chatError(s, "No Text loaded first");
