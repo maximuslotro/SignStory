@@ -49,8 +49,9 @@ Ever wanted to place many signs in a row with text being supplied from a txt fil
 
 ## Downloads
 
-Downloads can be found on [github](https://github.com/maximuslotr/SignStory/releases).
-Downloads can be found on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/signstory/files).
+Downloads can be found here on [github](https://github.com/maximuslotr/SignStory/releases).
+
+Downloads can be found here on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/signstory/files).
 
 ## Installation
 
