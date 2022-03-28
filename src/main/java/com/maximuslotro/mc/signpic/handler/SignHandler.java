@@ -87,15 +87,15 @@ public class SignHandler {
 										CurrentMode.instance.setState(CurrentMode.State.SEE, false);
 									}
 									if(Config.getConfig().defaultUsage.get()==false) {
-										ChatBuilder.chatClient(ChatBuilder.createcolor("Placed Page: "+Global_Vars.CurrentPage+" of "+(Global_Vars.Text.size()-1)+". "+MathUtil.round1(MathUtil.calculatePercentageToFloat(Global_Vars.CurrentPage, (Global_Vars.Text.size()-1)))+"%", EnumChatFormatting.GOLD));
+										ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.chat.sign.placed")+Global_Vars.CurrentPage+I18n.format("signstory.chat.sign.placed.of")+(Global_Vars.Text.size()-1)+". "+MathUtil.round1(MathUtil.calculatePercentageToFloat(Global_Vars.CurrentPage, (Global_Vars.Text.size()-1)))+"%", EnumChatFormatting.GOLD));
 										Global_Vars.CurrentPage++;
 										if(Global_Vars.CurrentPage==(Global_Vars.Text.size()-1)) {
-											ChatBuilder.chatClient(ChatBuilder.createcolor("One More Page!", EnumChatFormatting.GREEN));
+											ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.chat.sign.end.almost"), EnumChatFormatting.GREEN));
 										}
 										if(Global_Vars.CurrentPage>(Global_Vars.Text.size()-1)) {
 											Global_Vars.CurrentPage=(Global_Vars.Text.size()-1);
-											ChatBuilder.chatClient(ChatBuilder.createcolor("End of Text Reached!", EnumChatFormatting.GREEN));
-											ChatBuilder.chatClient(ChatBuilder.createcolor("Page Set Back to Final Page", EnumChatFormatting.GOLD));
+											ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.chat.sign.end"), EnumChatFormatting.GREEN));
+											ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.chat.sign.page.back"), EnumChatFormatting.GOLD));
 										}
 										GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
 									}

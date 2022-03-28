@@ -37,6 +37,38 @@ signpic.item.sign.desc.named.raw=§7name: [%s§7]
 signpic.key.category=Sign Picture
 signpic.key.gui=Open GUI
 
+# SignStory Command
+signstory.command.enabled.not=SignStory Mode is Currently Disabled
+signstory.command.enabled.not.please=Please Enable SignStory First!
+signstory.command.enabled.signstory.toggled.on=Enabled SignStory Usage
+signstory.command.enabled.signstory.toggled.off=Disabled SignStory Usage
+signstory.command.enabled.signpicture.toggled.on=Enabled SignPicture Usage
+signstory.command.enabled.signpicture.toggled.off=Disabled SignPicture Usage
+signstory.command.text.notloaded=No Text Loaded
+signstory.command.text.loadcommand=Use (/SignStory load_text) to Load Text
+signstory.command.text.set=Text Set
+signstory.command.placemode.enabled=Enabled Place Mode
+signstory.command.toggle.info=Use (/SignStory toggle_functionality) to Enable it
+signstory.command.select.page.error=Page Number is out of bounds! Page Not Set
+signstory.command.select.info=Use (/SignStory select_page #) to Select a Page
+signstory.command.select.page.info=Select a Page: 0 Through 
+signstory.command.select.page.selected=Set Current Page to: 
+signstory.command.subcommand.place=place_sign
+signstory.command.subcommand.place.letter=p
+signstory.command.subcommand.load=load_text
+signstory.command.subcommand.load.letter=l
+signstory.command.subcommand.select=select_page
+signstory.command.subcommand.select.letter=s
+signstory.command.subcommand.toggle=toggle_functionality
+signstory.command.subcommand.toggle.letter=t
+
+# SignStory Placer
+signstory.chat.sign.placed=Placed Page: 
+signstory.chat.sign.placed.of= of 
+signstory.chat.sign.end=End of Text Reached!
+signstory.chat.sign.end.almost=One More Page!
+signstory.chat.sign.page.back=Page Set Back to the Final Page
+
 # GUI
 ## Sign Editor
 signpic.gui.editor.see=View Sign
