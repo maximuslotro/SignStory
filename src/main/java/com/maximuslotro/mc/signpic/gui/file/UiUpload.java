@@ -20,6 +20,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FilenameFilter;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -39,6 +40,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.lib.ComponentMover;
 import com.maximuslotro.mc.signpic.lib.ComponentResizer;
 
@@ -191,6 +193,7 @@ public abstract class UiUpload {
 			@Override
 			public void actionPerformed(final @Nullable ActionEvent ev) {
 				final FileDialog fileDialog = new FileDialog(frame, getString("signpic.ui.title.file"), FileDialog.LOAD);
+				if (!Config.getConfig().defaultUsage.get()) {fileDialog.setFile("*.txt");}
 				fileDialog.setVisible(true);
 				final String dir = fileDialog.getDirectory();
 				final String name = fileDialog.getFile();
