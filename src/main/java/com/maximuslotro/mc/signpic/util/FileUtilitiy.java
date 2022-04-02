@@ -88,7 +88,8 @@ public class FileUtilitiy {
 			e.printStackTrace();
 		}
 		//content = content.replace("\n", " ");
-		content = content.replace("\r", " ");
+		content = content.replace("\r", "");
+		content = content.replace("\n", "& ");
 		//content = content.replace("\r\n", " ");
 		Global_Vars.Text = WordUtil.Splitter(content, 15, 4);
 	}

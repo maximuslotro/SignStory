@@ -6,6 +6,7 @@ import com.maximuslotro.mc.signpic.entry.EntryId;
 import com.maximuslotro.mc.signpic.entry.content.ContentId;
 import com.maximuslotro.mc.signpic.mode.CurrentMode;
 import com.maximuslotro.mc.signpic.util.ChatUtil;
+import com.maximuslotro.mc.signpic.util.FileUtilitiy;
 import com.maximuslotro.mc.signpic.util.WordUtil;
 import com.maximuslotro.mc.signpic.util.MathUtil;
 import com.maximuslotro.mc.signpic.gui.GuiMain;
@@ -94,14 +95,16 @@ public class SignStoryCommand extends BaseCommand{
 				CurrentMode.instance.setMode(CurrentMode.Mode.NONE);
 				CurrentMode.instance.setState(CurrentMode.State.PREVIEW, false);
 				GuiMain.setContentId(EntryId.blank);
-
+				Global_Vars.CurrentPage = 0;
 			}
 			else { 
 				ChatUtil.chatError(s, I18n.format("signstory.command.enabled.signpicture.toggled.off"));
 				ChatUtil.chatConfirm(s, I18n.format("signstory.command.enabled.signstory.toggled.on"));
 				ChatUtil.chatNotify(s, I18n.format("signstory.command.text.loadcommand"));
+				CurrentMode.instance.setMode(CurrentMode.Mode.NONE);
 				CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
 				GuiMain.setContentId(EntryId.blank);
+				Global_Vars.CurrentPage = 0;
 			}
 		}
 		else { chatUsage(s); }
