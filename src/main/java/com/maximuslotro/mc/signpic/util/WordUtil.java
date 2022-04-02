@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.google.common.math.IntMath;
-import com.maximuslotro.mc.signpic.Log;
+//import com.maximuslotro.mc.signpic.Log;
 
 public class WordUtil {
 	
@@ -57,7 +57,7 @@ public class WordUtil {
 			builder.setLength(linesize);
 			String result = builder.toString();
 			uf_lines.set(i, result);
-			Log.logDefault(i+"["+result+"]");
+			//Log.logDefault(i+"["+result+"]");
         }
 		return uf_lines;
 	}
@@ -77,31 +77,31 @@ public class WordUtil {
         Boolean done = false;
         for(String w:words) {
         	done=false;
-        	Log.logDefault("["+w+"]"+"b1");
+        	//Log.logDefault("["+w+"]"+"b1");
         	if(w.charAt(w.length()-1)=='&') {
         		String wr =w.replaceAll("&", "");
         		if(line!="") {
         			String tmp= line+" "+wr;
             		if(tmp.length()>lineSize) {
             			res.add(line);
-            			Log.logDefault("["+line+"]"+"a1");
+            			//Log.logDefault("["+line+"]"+"a1");
             			res.add(wr);
-            			Log.logDefault("["+wr+"]"+"a2");
+            			//Log.logDefault("["+wr+"]"+"a2");
             			line="";
             		}
             		if(tmp.length()==lineSize){
             			res.add(tmp);
-            			Log.logDefault("["+tmp+"]"+"a3");
+            			//Log.logDefault("["+tmp+"]"+"a3");
             			line="";
             		}
             		if(tmp.length()<lineSize){
             			res.add(tmp);
-            			Log.logDefault("["+tmp+"]"+"a4");
+            			//Log.logDefault("["+tmp+"]"+"a4");
             			line="";
             		}
         		}else {
         			res.add(wr);
-            		Log.logDefault("["+wr+"]"+"a5");
+            		//Log.logDefault("["+wr+"]"+"a5");
             	}
             	done=true;
         	}
@@ -111,10 +111,10 @@ public class WordUtil {
             	for(String s:results){
             		if (s.length()==lineSize) {
             			res.add(s);
-            			Log.logDefault("["+s+"]"+"1");
+            			//Log.logDefault("["+s+"]"+"1");
             		}else {
             			line = s;
-                		Log.logDefault("["+line+"]"+"2");
+                		//Log.logDefault("["+line+"]"+"2");
             		}
             	}
             	done=true;
@@ -122,13 +122,13 @@ public class WordUtil {
             if(w.length() == lineSize&&done==false){
             	if(line!="") {
             		res.add(line);
-        			Log.logDefault("["+line+"]"+"3");
+        			//Log.logDefault("["+line+"]"+"3");
             		line="";
         			res.add(w);
-        			Log.logDefault("["+w+"]"+"4");
+        			//Log.logDefault("["+w+"]"+"4");
             	}else {
             		res.add(w);
-        			Log.logDefault("["+w+"]"+"5");
+        			//Log.logDefault("["+w+"]"+"5");
             	}
             	done=true;
             }
@@ -137,29 +137,30 @@ public class WordUtil {
             		String tmp= line+" "+w;
             		if(tmp.length()>lineSize) {
             			res.add(line);
-            			Log.logDefault("["+line+"]"+"6");
+            			//Log.logDefault("["+line+"]"+"6");
             			line="";
             			line=w;
-            			Log.logDefault("["+line+"]"+"7");
+            			//Log.logDefault("["+line+"]"+"7");
             		}
             		if(tmp.length()==lineSize){
             			res.add(tmp);
-            			Log.logDefault("["+tmp+"]"+"8");
+            			//Log.logDefault("["+tmp+"]"+"8");
             			line="";
             		}
             		if(tmp.length()<lineSize){
             			line= tmp;
-            			Log.logDefault("["+line+"]"+"9");
+            			//Log.logDefault("["+line+"]"+"9");
             		}
             	}else {
             		line=w;
-            		Log.logDefault("["+w+"]"+"10");
+            		//Log.logDefault("["+w+"]"+"10");
             	}
             	done=true;
             }
         }
         if(line!="") {res.add(line);
-		Log.logDefault("["+line+"]"+"11");line="";}
+		//Log.logDefault("["+line+"]"+"11");
+        line="";}
         return res;
     }
 

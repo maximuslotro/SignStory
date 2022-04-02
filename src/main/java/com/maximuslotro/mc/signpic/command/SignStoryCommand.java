@@ -6,7 +6,6 @@ import com.maximuslotro.mc.signpic.entry.EntryId;
 import com.maximuslotro.mc.signpic.entry.content.ContentId;
 import com.maximuslotro.mc.signpic.mode.CurrentMode;
 import com.maximuslotro.mc.signpic.util.ChatUtil;
-import com.maximuslotro.mc.signpic.util.FileUtilitiy;
 import com.maximuslotro.mc.signpic.util.WordUtil;
 import com.maximuslotro.mc.signpic.util.MathUtil;
 import com.maximuslotro.mc.signpic.gui.GuiMain;
