@@ -36,7 +36,7 @@ signpic.item.sign.desc.named.meta=§7meta: %s§7
 signpic.item.sign.desc.named.raw=§7Název: [%s§7]
 
 # Key
-signpic.key.category=Sign Picture
+signpic.key.category=SignPicture
 signpic.key.gui=Otevřete GUI
 
 # SignStory Command
@@ -47,14 +47,14 @@ signstory.command.enabled.signstory.toggled.off=Vypnuté používání SignStory
 signstory.command.enabled.signpicture.toggled.on=Zapnuto používání SignPicture
 signstory.command.enabled.signpicture.toggled.off=Vypnuté používání SignPicture
 signstory.command.text.notloaded=Text nebyl načten
-signstory.command.text.loadcommand=Použité (/SignStory load_text) pro načtení textu
-signstory.command.text.set=Text Set
+signstory.command.text.loadcommand=Použijte (/SignStory load_text) pro načtení textu
+signstory.command.text.set=Textový soubor načten
 signstory.command.placemode.enabled=Zapnout pokládací režim
-signstory.command.toggle.info=Use (/SignStory toggle_functionality) to Enable it
+signstory.command.toggle.info=Použijte (/SignStory toggle_functionality) pro zapnutí
 signstory.command.select.page.error=Číslo stránky je nad limitem! Stránka není nastavená
-signstory.command.select.info=Use (/SignStory select_page #) to Select a Page
-signstory.command.select.page.info=Select a Page: 0 Through 
-signstory.command.select.page.selected=Set Current Page to: 
+signstory.command.select.info=Použijte (/SignStory select_page #) pro výběr stránky
+signstory.command.select.page.info=Vybraná stránka: 0 z 
+signstory.command.select.page.selected=Nastavit stránku na: 
 signstory.command.subcommand.place=place_sign
 signstory.command.subcommand.place.letter=p
 signstory.command.subcommand.load=load_text
@@ -65,11 +65,11 @@ signstory.command.subcommand.toggle=toggle_functionality
 signstory.command.subcommand.toggle.letter=t
 
 # SignStory Placer
-signstory.chat.sign.placed=Placed Page: 
-signstory.chat.sign.placed.of= of 
-signstory.chat.sign.end=End of Text Reached!
-signstory.chat.sign.end.almost=One More Page!
-signstory.chat.sign.page.back=Page Set Back to the Final Page
+signstory.chat.sign.placed=Umístění stránek: 
+signstory.chat.sign.placed.of= z 
+signstory.chat.sign.end=Konec načteného textu!
+signstory.chat.sign.end.almost=Ještě jedna stránka!
+signstory.chat.sign.page.back=Nastavení stránky zpět na poslední stránku
 
 # GUI
 ## Sign Editor
@@ -135,10 +135,10 @@ signpic.gui.settings.paas=Preventivní ochrana
 signpic.gui.settings.hide=Deaktivovat
 ### Sign Option
 signpic.gui.settings.sign=Nastavení Cedule
-signpic.gui.settings.sign.load=Načítání URL a Meta
-signpic.gui.settings.sign.load.content=Načítání URL
-signpic.gui.settings.sign.load.meta=Načítání Meta
-signpic.gui.settings.sign.openurl=Načítání URL
+signpic.gui.settings.sign.load=Načíst URL a Meta
+signpic.gui.settings.sign.load.content=Načíst URL
+signpic.gui.settings.sign.load.meta=Načíst Meta
+signpic.gui.settings.sign.openurl=Načíst URL
 signpic.gui.settings.sign.loadcancel=Zrušit načítání
 signpic.gui.settings.sign.reload=Znovu načíst
 signpic.gui.settings.sign.redownload=Znovu stáhnout
