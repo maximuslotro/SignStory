@@ -42,9 +42,9 @@ signpic.key.gui=Otevřete GUI
 # SignStory Command
 signstory.command.enabled.not=Režim SignStory je momentálně vypnut
 signstory.command.enabled.not.please=Nejprve zapnete SignStory!
-signstory.command.enabled.signstory.toggled.on=Zapnuto používání SignStory
+signstory.command.enabled.signstory.toggled.on=Zapnuté používání SignStory
 signstory.command.enabled.signstory.toggled.off=Vypnuté používání SignStory
-signstory.command.enabled.signpicture.toggled.on=Zapnuto používání SignPicture
+signstory.command.enabled.signpicture.toggled.on=Zapnuté používání SignPicture
 signstory.command.enabled.signpicture.toggled.off=Vypnuté používání SignPicture
 signstory.command.text.notloaded=Text nebyl načten
 signstory.command.text.loadcommand=Použijte (/SignStory load_text) pro načtení textu
