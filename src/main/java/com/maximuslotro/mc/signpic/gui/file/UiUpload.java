@@ -192,9 +192,12 @@ public abstract class UiUpload {
 		btnselect.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final @Nullable ActionEvent ev) {
+				frame.setAlwaysOnTop(false);
 				final FileDialog fileDialog = new FileDialog(frame, getString("signpic.ui.title.file"), FileDialog.LOAD);
 				if (!Config.getConfig().defaultUsage.get()) {fileDialog.setFile("*.txt");}
+				fileDialog.setAlwaysOnTop(true);
 				fileDialog.setVisible(true);
+				fileDialog.toFront();
 				final String dir = fileDialog.getDirectory();
 				final String name = fileDialog.getFile();
 				if (dir!=null&&name!=null)
