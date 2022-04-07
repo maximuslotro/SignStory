@@ -48,12 +48,13 @@ signstory.command.enabled.signpicture.toggled.on=Zapnuté používání SignPict
 signstory.command.enabled.signpicture.toggled.off=Vypnuté používání SignPicture
 signstory.command.text.notloaded=Text nebyl načten
 signstory.command.text.loadcommand=Použijte (/SignStory load_text) pro načtení textu
-signstory.command.text.set=Text byl načten
-signstory.command.placemode.enabled=Zapnout pokládací režim
+signstory.command.text.set=
+#Text byl načten
+signstory.command.placemode.enabled=Zapnut pokládací režim
 signstory.command.toggle.info=Použijte (/SignStory toggle_functionality) pro zapnutí
 signstory.command.select.page.error=Číslo stránky je nad limitem! Stránka není nastavená
 signstory.command.select.info=Použijte (/SignStory select_page #) pro výběr stránky
-signstory.command.select.page.info=Vybraná stránka: 0 z 
+signstory.command.select.page.info=Vybrané stránky: 0 z 
 signstory.command.select.page.selected=Načíst stránku na: 
 signstory.command.subcommand.place=place_sign
 signstory.command.subcommand.place.letter=p
@@ -69,7 +70,7 @@ signstory.chat.sign.placed=Umístění stránek:
 signstory.chat.sign.placed.of= z 
 signstory.chat.sign.end=Konec načteného textu!
 signstory.chat.sign.end.almost=Ještě jedna stránka!
-signstory.chat.sign.page.back=Nastavení stránky zpět na poslední stránku
+signstory.chat.sign.page.back=Nastavení stránky na poslední stránku
 
 # GUI
 ## Sign Editor
