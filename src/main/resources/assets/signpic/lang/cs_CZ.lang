@@ -70,8 +70,8 @@ signstory.chat.sign.end.almost=Ještě jedna stránka!
 signstory.chat.sign.page.back=Nastavení stránky na poslední stránku
 
 # Upload UI
-signstory.ui.title=Otevírač souborů SignStory
-signstory.ui.description=Nahrávač souborů! A File Selector!
+signstory.ui.title= Otevírač souborů pro SignStory 
+signstory.ui.description=Nahrávač souborů!
 signstory.ui.drop=Přetáhněte soubor .txt
 signstory.ui.select=nebo vyberte obrázek k nahrání
 signstory.ui.title.file=Soubor SignStory File Selector
@@ -184,7 +184,7 @@ signpic.gui.notice.screenshot.window.error=Došlo k chybě. %s
 signpic.gui.notice.screenshot.window.capture.error=Nelze pořídit snímek obrazovky. %s
 
 # Upload UI
-signpic.ui.title=Soubor SignPicture!
+signpic.ui.title= Otevírač souborů pro SignPicture! 
 signpic.ui.description=Nahrávač souborů!
 signpic.ui.drop=Přetáhněte obrázek
 signpic.ui.select=nebo vyberte obrázek k nahrání
