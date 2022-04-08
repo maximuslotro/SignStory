@@ -38,7 +38,6 @@ signpic.key.category=Sign Picture
 signpic.key.gui=Open GUI
 
 # SignStory Command
-signstory.command.enabled.not=SignStory Mode is Currently Disabled
 signstory.command.enabled.not.please=Please Enable SignStory First!
 signstory.command.enabled.signstory.toggled.on=Enabled SignStory Usage
 signstory.command.enabled.signstory.toggled.off=Disabled SignStory Usage
@@ -46,15 +45,14 @@ signstory.command.enabled.signpicture.toggled.on=Enabled SignPicture Usage
 signstory.command.enabled.signpicture.toggled.off=Disabled SignPicture Usage
 signstory.command.text.notloaded=No Text Loaded
 signstory.command.text.loadcommand=Use (/SignStory load_text) to Load Text
-signstory.command.text.set=Text Set
-signstory.command.placemode.enabled=Enabled Place Mode
+signstory.command.text.set.success=Text Loaded Successfully!
+signstory.command.text.set.fail=Text Failed to Load
+signstory.command.text.set.fail.char=Can't Load Text Containing the Character
 signstory.command.toggle.info=Use (/SignStory toggle_functionality) to Enable it
 signstory.command.select.page.error=Page Number is out of bounds! Page Not Set
 signstory.command.select.info=Use (/SignStory select_page #) to Select a Page
-signstory.command.select.page.info=Select a Page: 0 Through 
+signstory.command.select.page.info=Select a Page: 1 Through 
 signstory.command.select.page.selected=Set Current Page to: 
-signstory.command.subcommand.place=place_sign
-signstory.command.subcommand.place.letter=p
 signstory.command.subcommand.load=load_text
 signstory.command.subcommand.load.letter=l
 signstory.command.subcommand.select=select_page
@@ -68,6 +66,13 @@ signstory.chat.sign.placed.of= of
 signstory.chat.sign.end=End of Text Reached!
 signstory.chat.sign.end.almost=One More Page!
 signstory.chat.sign.page.back=Page Set Back to the Final Page
+
+# Upload UI
+signstory.ui.title=SignStory File Opener
+signstory.ui.description=A File Selector!
+signstory.ui.drop=Drag and Drop a .txt file
+signstory.ui.select=or select a text file
+signstory.ui.title.file=SignStory File Selector
 
 # GUI
 ## Sign Editor

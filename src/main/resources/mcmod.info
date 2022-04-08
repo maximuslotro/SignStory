@@ -17,7 +17,7 @@
 			"dependencies": ["Forge@[${minforgeversion},)"],
 			"parent": "",
 			"requiredMods": ["Forge@[${minforgeversion},)"],
-			"logoFile": "assets/signstory/textures/logo.png",
+			"logoFile": "assets/signpic/textures/logoS.png",
 			"screenshots": [],
 			"updateUrl": "https://github.com/maximuslotro/SignStory/releases",
 			"url": "https://github.com/maximuslotro/SignStory/releases",
