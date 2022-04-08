@@ -73,7 +73,7 @@ signstory.chat.sign.page.back=Nastavení stránky na poslední stránku
 signstory.ui.title= Soubory pro SignStory 
 signstory.ui.description=Nahrávač souborů!
 signstory.ui.drop=Přetáhněte soubor .txt
-signstory.ui.select=nebo vyberte obrázek k nahrání
+signstory.ui.select=nebo vyberte .txt k nahrání
 signstory.ui.title.file=Soubor SignStory File Selector
 
 # GUI
