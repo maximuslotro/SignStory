@@ -87,7 +87,7 @@ public class SignHandler {
 										CurrentMode.instance.setState(CurrentMode.State.SEE, false);
 									}
 									if(Config.getConfig().defaultUsage.get()==false) {
-										ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.chat.sign.placed")+Global_Vars.CurrentPage+I18n.format("signstory.chat.sign.placed.of")+(Global_Vars.Text.size()-1)+". "+MathUtil.round1(MathUtil.calculatePercentageToFloat(Global_Vars.CurrentPage, (Global_Vars.Text.size()-1)))+"%", EnumChatFormatting.GOLD));
+										ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.chat.sign.placed")+(Global_Vars.CurrentPage+1)+I18n.format("signstory.chat.sign.placed.of")+Global_Vars.Text.size()+". "+MathUtil.round1(MathUtil.calculatePercentageToFloat((Global_Vars.CurrentPage+1), Global_Vars.Text.size()))+"%", EnumChatFormatting.GOLD));
 										Global_Vars.CurrentPage++;
 										if(Global_Vars.CurrentPage==(Global_Vars.Text.size()-1)) {
 											ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.chat.sign.end.almost"), EnumChatFormatting.GREEN));

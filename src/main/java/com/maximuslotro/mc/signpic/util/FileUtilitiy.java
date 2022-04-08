@@ -101,7 +101,7 @@ public class FileUtilitiy {
 				}catch(Exception e) {
 					ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
 				}
-			GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
+			GuiMain.setContentId(Global_Vars.Text.get(0));
 			CurrentMode.instance.setMode(CurrentMode.Mode.PLACE);
 			CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
 		}else {

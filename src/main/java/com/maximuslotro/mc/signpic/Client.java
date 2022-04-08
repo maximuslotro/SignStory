@@ -184,6 +184,7 @@ public class Client {
 				loader.close();
 				((List<?>) f_loaders.get(ucp)).remove(loader);
 			}
+			lloader.close();
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}

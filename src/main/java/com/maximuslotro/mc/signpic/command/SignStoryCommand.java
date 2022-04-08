@@ -46,21 +46,21 @@ public class SignStoryCommand extends BaseCommand{
 			if(Global_Vars.Text!=null) {
 				if(args.length > 1) {
 					if (MathUtil.isInt(args[1])) {
-						if(Integer.valueOf(args[1])<=(Global_Vars.Text.size()-1)&&Integer.valueOf(args[1])> -1) {
-							Global_Vars.CurrentPage =Integer.valueOf(args[1]);
+						if((Integer.valueOf(args[1])-1)<=(Global_Vars.Text.size()-1)&&(Integer.valueOf(args[1])-1)> -1) {
+							Global_Vars.CurrentPage =(Integer.valueOf(args[1])-1);
 							GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
-							ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.selected")+Global_Vars.CurrentPage);
+							ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.selected")+(Global_Vars.CurrentPage+1));
 						}else {
 							ChatUtil.chatError(s, I18n.format("signstory.command.select.page.error"));
 							I18n.format("");
 						}
 					}else {
-						ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.info")+(Global_Vars.Text.size()-1));
+						ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.info")+(Global_Vars.Text.size()));
 						ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.info"));
 						I18n.format("");
 					}
 				}else {
-					ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.info")+(Global_Vars.Text.size()-1));
+					ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.info")+(Global_Vars.Text.size()));
 					ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.info"));
 					I18n.format("");
 				}
