@@ -25,9 +25,11 @@ import com.maximuslotro.mc.signpic.gui.GuiMain;
 import com.maximuslotro.mc.signpic.http.upload.UploadApiUtil;
 import com.maximuslotro.mc.signpic.http.upload.UploadCallback;
 import com.maximuslotro.mc.signpic.http.upload.UploadRequest;
+import com.maximuslotro.mc.signpic.mode.CurrentMode;
 import com.maximuslotro.mc.signpic.state.State;
 
 import net.minecraft.client.resources.I18n;
+import net.minecraft.util.EnumChatFormatting;
 
 public class FileUtilitiy {
 	public static boolean transfer(final @Nonnull Transferable transferable, final @Nullable UploadCallback after) {
@@ -86,11 +88,20 @@ public class FileUtilitiy {
 			content = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			e.printStackTrace();
+			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
 		}
 		//content = content.replace("\n", " ");
 		content = content.replace("\r", "");
 		content = content.replace("\n", "& ");
 		//content = content.replace("\r\n", " ");
-		Global_Vars.Text = WordUtil.Splitter(content, 15, 4);
+		try {
+			Global_Vars.Text = WordUtil.Splitter(content, 15, 4);
+			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.success"), EnumChatFormatting.GREEN));
+			}catch(Exception e) {
+				ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
+			}
+		GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
+		CurrentMode.instance.setMode(CurrentMode.Mode.PLACE);
+		CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
 	}
 }

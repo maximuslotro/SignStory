@@ -9,7 +9,7 @@ import com.maximuslotro.mc.signpic.util.ChatUtil;
 import com.maximuslotro.mc.signpic.util.WordUtil;
 import com.maximuslotro.mc.signpic.util.MathUtil;
 import com.maximuslotro.mc.signpic.gui.GuiMain;
-import com.maximuslotro.mc.signpic.gui.file.McUiUpload;
+import com.maximuslotro.mc.signpic.gui.file.McUiTextSelect;
 import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.Global_Vars;
 import com.maximuslotro.mc.signpic.Log;
@@ -25,38 +25,22 @@ public class SignStoryCommand extends BaseCommand{
 	}
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		return ("/SignStory <"+I18n.format("signstory.command.subcommand.place")+", " +I18n.format("signstory.command.subcommand.load")+", " +I18n.format("signstory.command.subcommand.select")+", " +I18n.format("signstory.command.subcommand.toggle"));
+		return ("/SignStory <"+I18n.format("signstory.command.subcommand.load")+", " +I18n.format("signstory.command.subcommand.select")+", " +I18n.format("signstory.command.subcommand.toggle"));
 	}
 	@Override
 	public void processCommand(ICommandSender s, String[] args) {
 		if (args.length == 0) {
 			chatUsage(s);
 		} 
-		else if (args[0].toLowerCase().startsWith(I18n.format("signstory.command.subcommand.place.letter"))) {
-			if(Config.getConfig().defaultUsage.get()==false) {
-				if(Global_Vars.Text!=null) {
-					ChatUtil.chatNotify(s, I18n.format("signstory.command.placemode.enabled"));
-					GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
-					CurrentMode.instance.setMode(CurrentMode.Mode.PLACE);
-					CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
-					}else {	
-						ChatUtil.chatError(s, I18n.format("signstory.command.text.notloaded"));
-						ChatUtil.chatNotify(s, I18n.format("signstory.command.text.loadcommand"));
-						}
-				}else {	
-					ChatUtil.chatError(s, I18n.format("signstory.command.enabled.not"));
-					ChatUtil.chatNotify(s, I18n.format("signstory.command.toggle.info"));
-					}
-				
-		} 
 		else if (args[0].toLowerCase().startsWith(I18n.format("signstory.command.subcommand.load.letter"))) {
 			if(Config.getConfig().defaultUsage.get()==false) {
 				//String text = "If you have not been North of 53, you have not been north!";
 				//Global_Vars.Text = WordUtil.Splitter(text, 15, 4);
-				McUiUpload.instance.setVisible(!McUiUpload.instance.isVisible());
-				ChatUtil.chatNotify(s, I18n.format("signstory.command.text.set"));
-				Log.logDefault("Text Set from String");
-			}else {ChatUtil.chatError(s, I18n.format("signstory.command.enabled.not.please"));}
+				McUiTextSelect.instance.setVisible(!McUiTextSelect.instance.isVisible());
+			}else {
+				ChatUtil.chatError(s, I18n.format("signstory.command.enabled.not.please"));
+				ChatUtil.chatNotify(s, I18n.format("signstory.command.toggle.info"));
+			}
 		}
 		else if (args[0].toLowerCase().startsWith(I18n.format("signstory.command.subcommand.select.letter"))) {
 			if(Global_Vars.Text!=null) {
@@ -101,7 +85,7 @@ public class SignStoryCommand extends BaseCommand{
 				ChatUtil.chatConfirm(s, I18n.format("signstory.command.enabled.signstory.toggled.on"));
 				ChatUtil.chatNotify(s, I18n.format("signstory.command.text.loadcommand"));
 				CurrentMode.instance.setMode(CurrentMode.Mode.NONE);
-				CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
+				CurrentMode.instance.setState(CurrentMode.State.PREVIEW, false);
 				GuiMain.setContentId(EntryId.blank);
 				Global_Vars.CurrentPage = 0;
 			}
@@ -111,7 +95,7 @@ public class SignStoryCommand extends BaseCommand{
 	@Override
 	public List addTabCompletionOptions(final ICommandSender s, final String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, I18n.format("signstory.command.subcommand.place"), I18n.format("signstory.command.subcommand.load"), I18n.format("signstory.command.subcommand.select"), I18n.format("signstory.command.subcommand.toggle"));
+			return CommandBase.getListOfStringsMatchingLastWord(args, I18n.format("signstory.command.subcommand.load"), I18n.format("signstory.command.subcommand.select"), I18n.format("signstory.command.subcommand.toggle"));
 		} else if (args.length == 2) {
 			if (args[0].toLowerCase().startsWith(I18n.format("signstory.command.subcommand.select.letter"))) {
 				return CommandBase.getListOfStringsMatchingLastWord(args, "");

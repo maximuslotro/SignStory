@@ -11,18 +11,15 @@ import javax.imageio.ImageIO;
 
 import com.maximuslotro.mc.signpic.Client;
 import com.maximuslotro.mc.signpic.Config;
-import com.maximuslotro.mc.signpic.http.upload.UploadApiUtil;
 import com.maximuslotro.mc.signpic.http.upload.UploadCallback;
-import com.maximuslotro.mc.signpic.http.upload.UploadRequest;
 import com.maximuslotro.mc.signpic.mode.CurrentMode;
-import com.maximuslotro.mc.signpic.state.State;
 import com.maximuslotro.mc.signpic.util.FileUtilitiy;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
 
-public class McUiUpload extends UiUpload {
-	public static final @Nonnull McUiUpload instance = new McUiUpload();
+public class McUiTextSelect extends UiTextSelect {
+	public static final @Nonnull McUiTextSelect instance = new McUiTextSelect();
 
 	@Override
 	protected void initialize() {
@@ -31,6 +28,7 @@ public class McUiUpload extends UiUpload {
 			this.frame.setAlwaysOnTop(true);
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	protected @Nullable BufferedImage getImage(final @Nonnull String path) {
 		try {
@@ -54,12 +52,8 @@ public class McUiUpload extends UiUpload {
 
 	@Override
 	protected void apply(final @Nonnull File f) {
-		if (UploadApiUtil.upload(UploadRequest.fromFile(f, new State()), UploadCallback.copyOnDone)) {
-			if (!CurrentMode.instance.isState(CurrentMode.State.CONTINUE)) {
-				close();
-				}
-		}
-
+		FileUtilitiy.loadTextFile(f);
+		close();
 	}
 
 	public void setVisible(final boolean b) {

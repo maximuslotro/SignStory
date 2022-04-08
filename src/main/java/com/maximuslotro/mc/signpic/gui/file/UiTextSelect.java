@@ -10,10 +10,14 @@ import java.awt.FileDialog;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
+import java.awt.dnd.DropTargetEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -21,6 +25,9 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -44,14 +51,14 @@ import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.lib.ComponentMover;
 import com.maximuslotro.mc.signpic.lib.ComponentResizer;
 
-public abstract class UiUpload {
+public abstract class UiTextSelect {
 
 	protected @Nullable JDialog frame;
 
 	/**
 	 * Create the application.
 	 */
-	public UiUpload() {
+	public UiTextSelect() {
 	}
 
 	private boolean initialized;
@@ -63,14 +70,21 @@ public abstract class UiUpload {
 			this.initialized = true;
 		}
 	}
+	
+    public enum DragState {
 
+        Waiting,
+        Accept,
+        Reject
+    }
+    private DragState state = DragState.Waiting;
 	/**
 	 * Initialize the contents of the frame.
 	 * @wbp.parser.entryPoint
 	 */
 	protected void initialize() {
 		final JDialog frame = this.frame = new JDialog();
-		frame.setTitle(getString("signpic.ui.title"));
+		frame.setTitle(getString("signstory.ui.title"));
 		frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		frame.setUndecorated(true);
 
@@ -95,13 +109,13 @@ public abstract class UiUpload {
 		close.setImage(getImage("textures/ui/close.png"));
 
 		final UiImage icon = new UiImage();
-		icon.setImage(getImage("textures/logo.png"));
+		icon.setImage(getImage("textures/logoS.png"));
 
-		final JLabel lbltitle = new JLabel(getString("signpic.ui.title"));
+		final JLabel lbltitle = new JLabel(getString("signstory.ui.title"));
 		lbltitle.setForeground(new Color(154, 202, 71));
 		lbltitle.setFont(new Font(Font.DIALOG, Font.BOLD, 30));
 
-		final JLabel lbldescription = new JLabel(getString("signpic.ui.description"));
+		final JLabel lbldescription = new JLabel(getString("signstory.ui.description"));
 		lbldescription.setFont(new Font(Font.DIALOG, Font.PLAIN, 12));
 		lbldescription.setForeground(new Color(0, 255, 255));
 		final GroupLayout gl_title = new GroupLayout(title);
@@ -145,17 +159,54 @@ public abstract class UiUpload {
 		drop.setBackground(new Color(255, 255, 255));
 		drop.setDropTarget(new DropTarget() {
 			@Override
-			public synchronized void drop(final @Nullable DropTargetDropEvent evt) {
-				if (evt!=null)
-					try {
-						evt.acceptDrop(DnDConstants.ACTION_COPY);
-						final Transferable transferable = evt.getTransferable();
-						if (transferable!=null)
-							transfer(transferable);
-					} catch (final Exception ex) {
-						ex.printStackTrace();
-					}
-			}
+	        public void dragEnter(DropTargetDragEvent dtde) {
+	            state = DragState.Reject;
+	            Transferable t = dtde.getTransferable();
+	            if (t.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) {
+	                try {
+	                    Object td = t.getTransferData(DataFlavor.javaFileListFlavor);
+	                    if (td instanceof List) {
+	                        state = DragState.Accept;
+	                        for (Object value : ((List) td)) {
+	                            if (value instanceof File) {
+	                                File file = (File) value;
+	                                String name = file.getName().toLowerCase();
+	                                if (!name.endsWith(".txt")) {
+	                                    state = DragState.Reject;
+	                                    break;
+	                                }
+	                                Path path = file.toPath();
+	                                apply(file);
+	                            }
+	                        }
+	                    }
+	                } catch (UnsupportedFlavorException | IOException ex) {
+	                    ex.printStackTrace();
+	                }
+	            }
+	            if (state == DragState.Accept) {
+	                dtde.acceptDrag(DnDConstants.ACTION_COPY);
+	            } else {
+	                dtde.rejectDrag();
+	            }
+	        }
+			@Override
+	        public void dragOver(DropTargetDragEvent dtde) {
+	        }
+
+	        @Override
+	        public void dropActionChanged(DropTargetDragEvent dtde) {
+	        }
+
+	        @Override
+	        public void dragExit(DropTargetEvent dte) {
+	            state = DragState.Waiting;
+	        }
+
+	        @Override
+	        public void drop(DropTargetDropEvent dtde) {
+	            state = DragState.Waiting;
+	        }
 		});
 		base.add(drop, BorderLayout.CENTER);
 
@@ -183,17 +234,18 @@ public abstract class UiUpload {
 		final Component verticalStrut_2 = Box.createVerticalStrut(15);
 		droparea.add(verticalStrut_2);
 
-		final JLabel lblimagehere = new JLabel(getString("signpic.ui.drop"));
+		final JLabel lblimagehere = new JLabel(getString("signstory.ui.drop"));
 		droparea.add(lblimagehere);
 		lblimagehere.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblimagehere.setFont(new Font(Font.DIALOG, Font.PLAIN, 25));
 
-		final JButton btnselect = new JButton(getString("signpic.ui.select"));
+		final JButton btnselect = new JButton(getString("signstory.ui.select"));
 		btnselect.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final @Nullable ActionEvent ev) {
 				frame.setAlwaysOnTop(false);
-				final FileDialog fileDialog = new FileDialog(frame, getString("signpic.ui.title.file"), FileDialog.LOAD);
+				final FileDialog fileDialog = new FileDialog(frame, getString("signstory.ui.title.file"), FileDialog.LOAD);
+				fileDialog.setFile("*.txt");
 				fileDialog.setAlwaysOnTop(true);
 				fileDialog.setVisible(true);
 				fileDialog.toFront();
