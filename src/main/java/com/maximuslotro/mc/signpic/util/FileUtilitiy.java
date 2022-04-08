@@ -90,18 +90,23 @@ public class FileUtilitiy {
 			e.printStackTrace();
 			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
 		}
-		//content = content.replace("\n", " ");
-		content = content.replace("\r", "");
-		content = content.replace("\n", "& ");
-		//content = content.replace("\r\n", " ");
-		try {
-			Global_Vars.Text = WordUtil.Splitter(content, 15, 4);
-			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.success"), EnumChatFormatting.GREEN));
-			}catch(Exception e) {
-				ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
-			}
-		GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
-		CurrentMode.instance.setMode(CurrentMode.Mode.PLACE);
-		CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
+		if(!content.contains("&")) {
+			//content = content.replace("\n", " ");
+			content = content.replace("\r", "");
+			content = content.replace("\n", "& ");
+			//content = content.replace("\r\n", " ");
+			try {
+				Global_Vars.Text = WordUtil.Splitter(content, 15, 4);
+				ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.success"), EnumChatFormatting.GREEN));
+				}catch(Exception e) {
+					ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
+				}
+			GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
+			CurrentMode.instance.setMode(CurrentMode.Mode.PLACE);
+			CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
+		}else {
+			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
+			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format(new String("signstory.command.text.set.fail.char"+" [&]")), EnumChatFormatting.RED));
+		}
 	}
 }
