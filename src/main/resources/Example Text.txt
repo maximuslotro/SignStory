@@ -1,0 +1,46 @@
+This text file is an example of how to, format text and how text is processed.
+Below is an example of how the previous text displays on a sign.
+
+First Sign
+[This text file ]
+[is an example  ]
+[of how to,     ]
+[format text and]
+
+Second Sign
+[how text is    ]
+[processed.     ]
+[Below is an    ]
+[example of how ]
+
+Third Sign
+[the previous   ]
+[text displays  ]
+[on a sign.     ]
+[               ]
+
+Essentially how this works is, the mod tries to place as many words onto one line as it can without chopping of the word.
+
+If the word exceeds 15 characters, the mod will chop it up every 15 characters into a new line.
+Ex. 
+(VeryLargeLargeWord)
+[VeryLargeLargeW]
+[ord            ]
+
+When placing a new line. Ex(
+Lets place a new line. 
+Cool Stuff is very nice YAY!
+)
+The mod will move the next word after the new line into another line.
+[Lets place a   ]
+[new line.      ]
+[Cool Stuff is  ]
+[very nice YAY! ]
+
+Instead of:
+[Lets place a   ]
+[new line. Cool ]
+[Stuff is very  ]
+[nice YAY!      ]
+
+So there is no need to specialty format your text, as this mod will take care of the formatting. 
