@@ -106,7 +106,7 @@ public class FileUtilitiy {
 			CurrentMode.instance.setState(CurrentMode.State.PREVIEW, true);
 		}else {
 			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
-			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format(new String("signstory.command.text.set.fail.char"+" [&]")), EnumChatFormatting.RED));
+			ChatBuilder.chatClient(ChatBuilder.createcolor(new String(I18n.format("signstory.command.text.set.fail")+" [&]"), EnumChatFormatting.RED));
 		}
 	}
 }

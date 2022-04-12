@@ -62,4 +62,13 @@ public class McUiTextSelect extends UiTextSelect {
 		else
 			requestClose();
 	}
+	public void setVisible(final boolean b,boolean a) {
+		if (b) {
+			requestOpen();
+		}else if(!b&&a) {
+			this.frame.setAlwaysOnTop(true);
+			this.frame.setAlwaysOnTop(false);
+			this.frame.toFront();
+		}else {requestClose();}
+	}
 }

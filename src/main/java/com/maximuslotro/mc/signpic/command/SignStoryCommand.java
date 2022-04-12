@@ -36,7 +36,7 @@ public class SignStoryCommand extends BaseCommand{
 			if(Config.getConfig().defaultUsage.get()==false) {
 				//String text = "If you have not been North of 53, you have not been north!";
 				//Global_Vars.Text = WordUtil.Splitter(text, 15, 4);
-				McUiTextSelect.instance.setVisible(!McUiTextSelect.instance.isVisible());
+				McUiTextSelect.instance.setVisible(!McUiTextSelect.instance.isVisible(),true);
 			}else {
 				ChatUtil.chatError(s, I18n.format("signstory.command.enabled.not.please"));
 				ChatUtil.chatNotify(s, I18n.format("signstory.command.toggle.info"));
@@ -66,7 +66,7 @@ public class SignStoryCommand extends BaseCommand{
 				}
 			}else {	
 				ChatUtil.chatError(s, I18n.format("signstory.command.text.notloaded"));
-				ChatUtil.chatError(s, I18n.format("signstory.command.enabled.not.please"));
+				ChatUtil.chatError(s, I18n.format("signstory.command.text.loadcommand"));
 				}
 		}
 		else if (args[0].toLowerCase().startsWith(I18n.format("signstory.command.subcommand.toggle.letter"))) {
