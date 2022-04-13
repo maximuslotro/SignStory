@@ -176,9 +176,8 @@ public class FileUtilitiy {
 			used=true;
 		}
 		if (used==false){
-			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail"), EnumChatFormatting.RED));
-			ChatBuilder.chatClient(ChatBuilder.createcolor(new String(I18n.format("signstory.command.text.set.fail")+" [&,%,$,@,{, and }]"), EnumChatFormatting.RED));
-			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail.char.after"), EnumChatFormatting.RED));
+			ChatBuilder.chatClient(ChatBuilder.createcolor(new String(I18n.format("signstory.command.text.set.fail.char")+" [&,%,$,@,{, and }]"), EnumChatFormatting.RED));
+			ChatBuilder.chatClient(ChatBuilder.createcolor(I18n.format("signstory.command.text.set.fail.char.after"), EnumChatFormatting.AQUA));
 		}
 	}
 	private static void setStuff() {
