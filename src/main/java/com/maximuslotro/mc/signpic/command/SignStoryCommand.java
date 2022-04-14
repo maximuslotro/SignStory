@@ -43,31 +43,33 @@ public class SignStoryCommand extends BaseCommand{
 			}
 		}
 		else if (args[0].toLowerCase().startsWith(I18n.format("signstory.command.subcommand.select.letter"))) {
-			if(Global_Vars.Text!=null) {
-				if(args.length > 1) {
-					if (MathUtil.isInt(args[1])) {
-						if((Integer.valueOf(args[1])-1)<=(Global_Vars.Text.size()-1)&&(Integer.valueOf(args[1])-1)> -1) {
-							Global_Vars.CurrentPage =(Integer.valueOf(args[1])-1);
-							GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
-							ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.selected")+(Global_Vars.CurrentPage+1));
+			if(Config.getConfig().defaultUsage.get()==false) {
+				if(Global_Vars.Text!=null) {
+					if(args.length > 1) {
+						if (MathUtil.isInt(args[1])) {
+							if((Integer.valueOf(args[1])-1)<=(Global_Vars.Text.size()-1)&&(Integer.valueOf(args[1])-1)> -1) {
+								Global_Vars.CurrentPage =(Integer.valueOf(args[1])-1);
+								GuiMain.setContentId(Global_Vars.Text.get(Global_Vars.CurrentPage));
+								ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.selected")+(Global_Vars.CurrentPage+1));
+							}else {
+								ChatUtil.chatError(s, I18n.format("signstory.command.select.page.error"));
+							}
 						}else {
-							ChatUtil.chatError(s, I18n.format("signstory.command.select.page.error"));
-							I18n.format("");
+							ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.info")+(Global_Vars.Text.size()));
+							ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.info"));
 						}
 					}else {
 						ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.info")+(Global_Vars.Text.size()));
 						ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.info"));
-						I18n.format("");
 					}
-				}else {
-					ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.page.info")+(Global_Vars.Text.size()));
-					ChatUtil.chatConfirm(s, I18n.format("signstory.command.select.info"));
-					I18n.format("");
-				}
-			}else {	
-				ChatUtil.chatError(s, I18n.format("signstory.command.text.notloaded"));
-				ChatUtil.chatError(s, I18n.format("signstory.command.text.loadcommand"));
-				}
+				}else {	
+					ChatUtil.chatError(s, I18n.format("signstory.command.text.notloaded"));
+					ChatUtil.chatError(s, I18n.format("signstory.command.text.loadcommand"));
+					}
+			}else {
+				ChatUtil.chatError(s, I18n.format("signstory.command.enabled.not.please"));
+				ChatUtil.chatNotify(s, I18n.format("signstory.command.toggle.info"));
+			}
 		}
 		else if (args[0].toLowerCase().startsWith(I18n.format("signstory.command.subcommand.toggle.letter"))) {
 			Boolean config = Config.getConfig().defaultUsage.get();

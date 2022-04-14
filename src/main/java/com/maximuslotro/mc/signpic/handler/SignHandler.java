@@ -81,7 +81,7 @@ public class SignHandler {
 								final SignEntity se = Sign.preview;
 								if (se.isRenderable()) {
 									final TileEntitySign preview = se.getTileEntity();
-									if (preview.xCoord==tileSign.xCoord&&preview.yCoord==tileSign.yCoord&&preview.zCoord==tileSign.zCoord) {
+									if (preview.xCoord==tileSign.xCoord&&preview.yCoord==tileSign.yCoord&&preview.zCoord==tileSign.zCoord&&Config.getConfig().defaultUsage.get()==true) {
 										se.setVisible(false);
 										CurrentMode.instance.setState(CurrentMode.State.PREVIEW, false);
 										CurrentMode.instance.setState(CurrentMode.State.SEE, false);
