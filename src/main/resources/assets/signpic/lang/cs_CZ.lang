@@ -1,4 +1,4 @@
-# Czech - v1.0
+# Czech - v1.1
 # Translate by Kofola45cz
 # Overlay
 ## Overlay
@@ -7,7 +7,8 @@ signpic.over.hub.usage.takeall=[%s]: Pořiďte snímek obrazovky
 signpic.over.hub.usage.takerangewindow=[%s]: Pořiďte snímek obrazovky zadaného rozsahu
 signpic.over.hub.usage.release=[Release]: Otevřete rozhraní SignPicture
 ### Mode
-signpic.over.mode.place=Umístěte ceduli a použij obrázek
+signpic.over.mode.place=Umístěte ceduli a použijte obrázek
+signstory.over.mode.place=Umístěte ceduli a použijte text
 signpic.over.mode.option=Klikni na ceduli s obrázkem a otevři GUI s nastavením.
 signpic.over.mode.setpreview=Klikni na blok a zobraz ukázku umístění
 ## F3
@@ -36,8 +37,46 @@ signpic.item.sign.desc.named.meta=§7meta: %s§7
 signpic.item.sign.desc.named.raw=§7Název: [%s§7]
 
 # Key
-signpic.key.category=Sign Picture
-signpic.key.gui=Otevřete GUI
+signpic.key.category=SignPicture
+signpic.key.gui=Otevření GUI
+
+# SignStory Command
+signstory.command.enabled.not.please=Nejprve prosím zapněte SignStory!
+signstory.command.enabled.signstory.toggled.on=Zapnuté používání SignStory
+signstory.command.enabled.signstory.toggled.off=Vypnuté používání SignStory
+signstory.command.enabled.signpicture.toggled.on=Zapnuté používání SignPicture
+signstory.command.enabled.signpicture.toggled.off=Vypnuté používání SignPicture
+signstory.command.text.notloaded=Text nebyl načten
+signstory.command.text.loadcommand=Použijte nejprve (/SignStory load_text) pro načtení textu
+signstory.command.text.set.success=Text úspěšně načten!
+signstory.command.text.set.fail=Text se nezdařilo načíst
+signstory.command.text.set.fail.char=Nepodařilo se načíst textový soubor, protože obsahuje všechny následující znaky:
+signstory.command.text.set.fail.char.after=Prosím, odstraňte jeden z těchto znaků z textového souboru a zkuste soubor znovu načíst.
+signstory.command.toggle.info=Použijte (/SignStory toggle_functionality) pro zapnutí
+signstory.command.select.page.error=Číslo stránky je nad limitem! Stránka není nastavená
+signstory.command.select.info=Použijte (/SignStory select_page #) pro výběr stránky
+signstory.command.select.page.info=Vybrané stránky: 1 z 
+signstory.command.select.page.selected=Načíst stránku na: 
+signstory.command.subcommand.load=load_text
+signstory.command.subcommand.load.letter=l
+signstory.command.subcommand.select=select_page
+signstory.command.subcommand.select.letter=s
+signstory.command.subcommand.toggle=toggle_functionality
+signstory.command.subcommand.toggle.letter=t
+
+# SignStory Placer
+signstory.chat.sign.placed=Umístění stránek: 
+signstory.chat.sign.placed.of= z 
+signstory.chat.sign.end=Konec načteného textu!
+signstory.chat.sign.end.almost=Ještě jedna stránka!
+signstory.chat.sign.page.back=Nastavení stránky na poslední stránku
+
+# Upload UI
+signstory.ui.title= Soubory pro SignStory 
+signstory.ui.description=Nahrávač souborů!
+signstory.ui.drop=Přetáhněte soubor .txt
+signstory.ui.select=nebo vyberte .txt k nahrání
+signstory.ui.title.file=Soubor SignStory File Selector
 
 # GUI
 ## Sign Editor
@@ -103,10 +142,10 @@ signpic.gui.settings.paas=Preventivní ochrana
 signpic.gui.settings.hide=Deaktivovat
 ### Sign Option
 signpic.gui.settings.sign=Nastavení Cedule
-signpic.gui.settings.sign.load=Načítání URL a Meta
-signpic.gui.settings.sign.load.content=Načítání URL
-signpic.gui.settings.sign.load.meta=Načítání Meta
-signpic.gui.settings.sign.openurl=Načítání URL
+signpic.gui.settings.sign.load=Načíst URL a Meta
+signpic.gui.settings.sign.load.content=Načíst URL
+signpic.gui.settings.sign.load.meta=Načíst Meta
+signpic.gui.settings.sign.openurl=Načíst URL
 signpic.gui.settings.sign.loadcancel=Zrušit načítání
 signpic.gui.settings.sign.reload=Znovu načíst
 signpic.gui.settings.sign.redownload=Znovu stáhnout
@@ -147,7 +186,7 @@ signpic.gui.notice.screenshot.window.error=Došlo k chybě. %s
 signpic.gui.notice.screenshot.window.capture.error=Nelze pořídit snímek obrazovky. %s
 
 # Upload UI
-signpic.ui.title=Soubor SignPicture!
+signpic.ui.title= Soubory pro SignPicture! 
 signpic.ui.description=Nahrávač souborů!
 signpic.ui.drop=Přetáhněte obrázek
 signpic.ui.select=nebo vyberte obrázek k nahrání
