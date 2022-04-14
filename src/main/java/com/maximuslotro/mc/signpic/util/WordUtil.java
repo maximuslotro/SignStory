@@ -11,8 +11,8 @@ import com.google.common.math.IntMath;
 
 public class WordUtil {
 	
-	public static List<String> Splitter(String text, int line_length, int row_n_combine) {
-		List<String> Lines_unformatted = splitString(text, line_length);
+	public static List<String> Splitter(String text, int line_length, int row_n_combine, char Used) {
+		List<String> Lines_unformatted = splitString(text, line_length,Used);
 		List<String> Lines_formatted = addspaces(Lines_unformatted, line_length);
 		List<String> Lines_combined = combinelines(Lines_formatted, row_n_combine, line_length);
 		return Lines_combined;
@@ -64,7 +64,7 @@ public class WordUtil {
 	
 	
 	
-	private static List<String> splitString(String msg, int lineSize) {
+	private static List<String> splitString(String msg, int lineSize,char used) {
         List<String> res = new ArrayList<>();
 /*
         Pattern p = Pattern.compile("\\b.{1," + (lineSize-1) + "}\\b\\W?");
@@ -78,8 +78,9 @@ public class WordUtil {
         for(String w:words) {
         	done=false;
         	//Log.logDefault("["+w+"]"+"b1");
-        	if(w.charAt(w.length()-1)=='&') {
-        		String wr =w.replaceAll("&", "");
+        	if(w.charAt(w.length()-1)==used) {
+        		String letter = String.valueOf(used);  
+        		String wr =w.replace(letter, "");
         		if(line!="") {
         			String tmp= line+" "+wr;
             		if(tmp.length()>lineSize) {

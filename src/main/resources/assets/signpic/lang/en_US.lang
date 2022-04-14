@@ -6,6 +6,7 @@ signpic.over.hub.usage.takerangewindow=[%s]: Take window screenshot of a specifi
 signpic.over.hub.usage.release=[Release]: Open SignPicture GUI
 ### Mode
 signpic.over.mode.place=Place Sign and Apply Image
+signstory.over.mode.place=Place Sign and Apply text
 signpic.over.mode.option=Click Sign Picture and Open Sign Option GUI.
 signpic.over.mode.setpreview=Click Block and Set Preview Location
 ## F3
@@ -44,10 +45,11 @@ signstory.command.enabled.signstory.toggled.off=Disabled SignStory Usage
 signstory.command.enabled.signpicture.toggled.on=Enabled SignPicture Usage
 signstory.command.enabled.signpicture.toggled.off=Disabled SignPicture Usage
 signstory.command.text.notloaded=No Text Loaded
-signstory.command.text.loadcommand=Use (/SignStory load_text) to Load Text
+signstory.command.text.loadcommand=Use (/SignStory load_text) to Load Text First
 signstory.command.text.set.success=Text Loaded Successfully!
 signstory.command.text.set.fail=Text Failed to Load
-signstory.command.text.set.fail.char=Can't Load Text Containing the Character
+signstory.command.text.set.fail.char=Failed to load the text file, as it contains all of the following characters: 
+signstory.command.text.set.fail.char.after=Please remove one of these characters from your text file, then try again to load the file
 signstory.command.toggle.info=Use (/SignStory toggle_functionality) to Enable it
 signstory.command.select.page.error=Page Number is out of bounds! Page Not Set
 signstory.command.select.info=Use (/SignStory select_page #) to Select a Page

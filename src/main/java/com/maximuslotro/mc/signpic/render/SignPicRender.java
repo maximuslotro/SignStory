@@ -70,7 +70,10 @@ public class SignPicRender {
 					OpenGL.glPopMatrix();
 
 					OpenGL.glTranslatef(fontrenderer.FONT_HEIGHT, 0f, 0f);
-					final String str = I18n.format(CurrentMode.instance.getMode().message);
+					String str = "";
+					if(Config.getConfig().defaultUsage.get()) {
+						str = I18n.format(CurrentMode.instance.getMode().message);
+					}else {str = I18n.format("signstory.over.mode.place");}
 					fontrenderer.drawStringWithShadow(str, 0, 0, 0xffffff);
 
 					OpenGL.glPopMatrix();
