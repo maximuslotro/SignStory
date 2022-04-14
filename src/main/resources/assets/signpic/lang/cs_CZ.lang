@@ -7,7 +7,8 @@ signpic.over.hub.usage.takeall=[%s]: Pořiďte snímek obrazovky
 signpic.over.hub.usage.takerangewindow=[%s]: Pořiďte snímek obrazovky zadaného rozsahu
 signpic.over.hub.usage.release=[Release]: Otevřete rozhraní SignPicture
 ### Mode
-signpic.over.mode.place=Umístěte ceduli a použij obrázek
+signpic.over.mode.place=Umístěte ceduli a použijte obrázek
+signstory.over.mode.place=Umístěte ceduli a použijte text
 signpic.over.mode.option=Klikni na ceduli s obrázkem a otevři GUI s nastavením.
 signpic.over.mode.setpreview=Klikni na blok a zobraz ukázku umístění
 ## F3
@@ -46,10 +47,11 @@ signstory.command.enabled.signstory.toggled.off=Vypnuté používání SignStory
 signstory.command.enabled.signpicture.toggled.on=Zapnuté používání SignPicture
 signstory.command.enabled.signpicture.toggled.off=Vypnuté používání SignPicture
 signstory.command.text.notloaded=Text nebyl načten
-signstory.command.text.loadcommand=Použijte (/SignStory load_text) pro načtení textu
+signstory.command.text.loadcommand=Použijte nejprve (/SignStory load_text) pro načtení textu
 signstory.command.text.set.success=Text úspěšně načten!
 signstory.command.text.set.fail=Text se nezdařilo načíst
-signstory.command.text.set.fail.char=Nelze načíst text obsahující znak
+signstory.command.text.set.fail.char=Nepodařilo se načíst textový soubor, protože obsahuje všechny následující znaky:
+signstory.command.text.set.fail.char.after=Prosím, odstraňte jeden z těchto znaků z textového souboru a zkuste soubor načíst znovu.
 signstory.command.toggle.info=Použijte (/SignStory toggle_functionality) pro zapnutí
 signstory.command.select.page.error=Číslo stránky je nad limitem! Stránka není nastavená
 signstory.command.select.info=Použijte (/SignStory select_page #) pro výběr stránky
