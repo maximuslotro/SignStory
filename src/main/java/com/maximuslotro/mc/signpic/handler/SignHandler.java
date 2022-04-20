@@ -29,7 +29,6 @@ import com.maximuslotro.mc.signpic.preview.SignEntity;
 import com.maximuslotro.mc.signpic.reflect.lib.ReflectClass;
 import com.maximuslotro.mc.signpic.reflect.lib.ReflectField;
 import com.maximuslotro.mc.signpic.util.ChatBuilder;
-import com.maximuslotro.mc.signpic.util.ChatUtil;
 import com.maximuslotro.mc.signpic.util.MathUtil;
 import com.maximuslotro.mc.signpic.util.Sign;
 

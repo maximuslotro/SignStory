@@ -77,7 +77,7 @@ public class ImgurUpload extends Communicate implements Progressable, IUploader 
 				}
 
 				@Override
-				protected void afterRead(final int n) {
+				protected synchronized void afterRead(final int n) {
 					super.afterRead(n);
 					state.getProgress().done = getByteCount();
 				}

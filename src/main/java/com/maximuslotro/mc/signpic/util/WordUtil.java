@@ -1,12 +1,8 @@
 package com.maximuslotro.mc.signpic.util;
 
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import com.google.common.math.IntMath;
 //import com.maximuslotro.mc.signpic.Log;
 
 public class WordUtil {

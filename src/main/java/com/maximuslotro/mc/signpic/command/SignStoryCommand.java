@@ -3,16 +3,13 @@ package com.maximuslotro.mc.signpic.command;
 import java.util.List;
 
 import com.maximuslotro.mc.signpic.entry.EntryId;
-import com.maximuslotro.mc.signpic.entry.content.ContentId;
 import com.maximuslotro.mc.signpic.mode.CurrentMode;
 import com.maximuslotro.mc.signpic.util.ChatUtil;
-import com.maximuslotro.mc.signpic.util.WordUtil;
 import com.maximuslotro.mc.signpic.util.MathUtil;
 import com.maximuslotro.mc.signpic.gui.GuiMain;
 import com.maximuslotro.mc.signpic.gui.file.McUiTextSelect;
 import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.Global_Vars;
-import com.maximuslotro.mc.signpic.Log;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.command.CommandBase;

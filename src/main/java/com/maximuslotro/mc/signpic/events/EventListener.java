@@ -6,13 +6,8 @@ import com.maximuslotro.mc.signpic.entry.EntryId;
 import com.maximuslotro.mc.signpic.gui.GuiMain;
 import com.maximuslotro.mc.signpic.mode.CurrentMode;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.FMLNetworkEvent.ClientDisconnectionFromServerEvent;
-
-import static net.minecraftforge.common.MinecraftForge.EVENT_BUS;
-
-import java.util.List;
 
 public class EventListener {
 	@SubscribeEvent
