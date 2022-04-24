@@ -141,6 +141,7 @@ public class Debug {
 			sign[i] = StringUtils.substring(id, 15*i, Math.min(15*(i+1), length));
 	}
 
+	@SuppressWarnings("resource")
 	static String convertStreamToString(final java.io.InputStream is) {
 		final java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
 		return s.hasNext() ? s.next() : "";

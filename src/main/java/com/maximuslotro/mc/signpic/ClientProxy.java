@@ -6,10 +6,12 @@ import java.io.IOException;
 import javax.annotation.Nonnull;
 
 import com.maximuslotro.mc.signpic.command.SignStoryCommand;
+import com.maximuslotro.mc.signpic.events.EventListener;
 import com.maximuslotro.mc.signpic.render.CustomItemSignRenderer;
 import com.mojang.util.UUIDTypeAdapter;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -58,6 +60,7 @@ public class ClientProxy extends CommonProxy {
 	public void init(final @Nonnull FMLInitializationEvent event) {
 		super.init(event);
 
+		FMLCommonHandler.instance().bus().register(new EventListener());
 		// Replace Sign Renderer
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySign.class, Client.renderer);
 		MinecraftForgeClient.registerItemRenderer(Items.sign, new CustomItemSignRenderer());

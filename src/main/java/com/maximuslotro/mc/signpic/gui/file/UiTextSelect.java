@@ -24,7 +24,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
@@ -47,7 +46,6 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.lib.ComponentMover;
 import com.maximuslotro.mc.signpic.lib.ComponentResizer;
 
@@ -159,7 +157,7 @@ public abstract class UiTextSelect {
 		drop.setBackground(new Color(255, 255, 255));
 		drop.setDropTarget(new DropTarget() {
 			@Override
-	        public void dragEnter(DropTargetDragEvent dtde) {
+	        public synchronized void dragEnter(DropTargetDragEvent dtde) {
 	            state = DragState.Reject;
 	            Transferable t = dtde.getTransferable();
 	            if (t.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) {
@@ -191,20 +189,20 @@ public abstract class UiTextSelect {
 	            }
 	        }
 			@Override
-	        public void dragOver(DropTargetDragEvent dtde) {
+	        public synchronized void dragOver(DropTargetDragEvent dtde) {
 	        }
 
 	        @Override
-	        public void dropActionChanged(DropTargetDragEvent dtde) {
+	        public synchronized void dropActionChanged(DropTargetDragEvent dtde) {
 	        }
 
 	        @Override
-	        public void dragExit(DropTargetEvent dte) {
+	        public synchronized void dragExit(DropTargetEvent dte) {
 	            state = DragState.Waiting;
 	        }
 
 	        @Override
-	        public void drop(DropTargetDropEvent dtde) {
+	        public synchronized void drop(DropTargetDropEvent dtde) {
 	            state = DragState.Waiting;
 	        }
 		});

@@ -10,7 +10,6 @@ import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
 
 import com.maximuslotro.mc.signpic.Client;
-import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.http.upload.UploadApiUtil;
 import com.maximuslotro.mc.signpic.http.upload.UploadCallback;
 import com.maximuslotro.mc.signpic.http.upload.UploadRequest;

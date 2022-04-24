@@ -6,12 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import net.minecraft.command.ICommandSender;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
-import net.minecraft.world.World;
 
 public class ChatUtil {
 	public static List<String> constructHelp(final String header, final String[] commands, final String[] help, final char colour1, final char colour2) {

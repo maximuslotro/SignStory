@@ -1,6 +1,5 @@
 package com.maximuslotro.mc.signpic.util;
 
-import java.text.DecimalFormat;
 
 public class MathUtil {
 	public static boolean isInt(String str) {

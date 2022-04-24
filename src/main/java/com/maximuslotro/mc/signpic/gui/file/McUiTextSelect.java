@@ -10,7 +10,6 @@ import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
 
 import com.maximuslotro.mc.signpic.Client;
-import com.maximuslotro.mc.signpic.Config;
 import com.maximuslotro.mc.signpic.http.upload.UploadCallback;
 import com.maximuslotro.mc.signpic.mode.CurrentMode;
 import com.maximuslotro.mc.signpic.util.FileUtilitiy;
@@ -28,7 +27,6 @@ public class McUiTextSelect extends UiTextSelect {
 			this.frame.setAlwaysOnTop(true);
 	}
 
-	@SuppressWarnings("resource")
 	@Override
 	protected @Nullable BufferedImage getImage(final @Nonnull String path) {
 		try {
