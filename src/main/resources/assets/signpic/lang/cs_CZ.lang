@@ -145,6 +145,7 @@ signpic.gui.settings.sign=Nastavení Cedule
 signpic.gui.settings.sign.load=Načíst URL a Meta
 signpic.gui.settings.sign.load.content=Načíst URL
 signpic.gui.settings.sign.load.meta=Načíst Meta
+signpic.gui.settings.sign.load.text=Načíst text
 signpic.gui.settings.sign.openurl=Načíst URL
 signpic.gui.settings.sign.loadcancel=Zrušit načítání
 signpic.gui.settings.sign.reload=Znovu načíst
