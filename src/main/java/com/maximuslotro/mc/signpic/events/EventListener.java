@@ -14,7 +14,6 @@ public class EventListener {
     public void onPlayerLeftServer(ClientDisconnectionFromServerEvent event) {
 		Global_Vars.CurrentPage = 0;
 		GuiMain.setContentId(EntryId.blank);
-		Global_Vars.Text.clear();
 		Global_Vars.Text = null;
 		CurrentMode.instance.setMode(CurrentMode.Mode.NONE);
 		CurrentMode.instance.setState(CurrentMode.State.PREVIEW, false);
