@@ -1,23 +1,23 @@
 buildscript {
     repositories {
-mavenCentral();
         maven {
             url "https://repo1.maven.org/maven2" 
         }
-        
+        mavenCentral()
         maven {
             name = "forge"
-            //url = "http://lss233.littleservice.cn/repositories/minecraft"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = 'sonatype'
-            url = 'https://oss.sonatype.org/content/repositories/snapshots/'
+            url = "https://maven.minecraftforge.net/"
         }
     }
     dependencies {
-        classpath project.forgegradle
+        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
+            changing = true
+        }
     }
+}
+
+plugins {
+    id 'java-library'
 }
 
 apply plugin: 'forge'
@@ -37,10 +37,8 @@ idea {
     }
 }
 
-compileJava {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
-}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 configurations {
     shade
