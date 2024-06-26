@@ -24,34 +24,15 @@
 * [Contribution](#contribution)
 * [Credits](#credits)
 
-## About
-
-Ever wanted to place many signs in a row with text being supplied from a txt file? Well look no further. This mod's aim is to allow users to create stories with signs in Minecraft. It also perserves all the functions of the original SignPicture Mod and is like an updated and maintianed version of it.
-
-## License
-* Sign Story
-  - (c) 2022 maximuslotro
-  - [![License](https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/maximuslotro/SignStory/main/LICENSE.md)
-* Sign Picture
-  - (c) 2016 TeamFruit
-  - [![License](https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/Team-Fruit/SignPicture/master/LICENSE.md)
-* Banana Widget
-  - (c) 2016 TeamFruit
-  - [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://opensource.org/licenses/mit-license.php)
-* Textures and Models
-  - (c) 2016 TeamFruit
-  - [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-yellow.svg?style=flat)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)
-  - (c) 2007-2017 ppy Pty Ltd
-    - [GitHub](https://github.com/ppy/osu-resources)
-    - [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-yellow.svg?style=flat)](https://github.com/ppy/osu-resources/blob/master/LICENCE.md)
-* Text and Translations
-  - [![License](https://img.shields.io/badge/License-No%20Restriction-green.svg?style=flat)](https://creativecommons.org/publicdomain/zero/1.0/)
-
 ## Downloads
 
 Downloads can be found here on [github](https://github.com/maximuslotr/SignStory/releases).
 
 Downloads can be found here on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/signstory/files).
+
+## About
+
+Ever wanted to place many signs in a row with text being supplied from a txt file? Well look no further. This mod's aim is to allow users to create stories with signs in Minecraft. It also perserves all the functions of the original SignPicture Mod and is like an updated and maintianed version of it.
 
 ## Installation
 
@@ -59,7 +40,7 @@ You install this mod by putting it into the `minecraft/mods/` folder. It has no 
 
 ## Issues
 
-Sign Story crashing, have a suggestion, found a bug?  Create an issue now!
+SignStory crashing, have a suggestion, found a bug?  Create an issue now!
 
 1. Make sure your issue has not already been answered or fixed and you are using the latest version. Also think about whether your issue is a valid one before submitting it.
 2. Go to [the issues page](https://github.com/maximuslotro/SignStory/issues) and click [new issue](https://github.com/maximuslotro/SignStory/issues/new)
@@ -125,6 +106,25 @@ Getting Started
 9. Squash commits for cleaner history
 
 If you are only doing single file pull requests, GitHub supports using a quick way without the need of cloning your fork. Also read up about [synching](https://help.github.com/articles/syncing-a-fork) if you plan to contribute on regular basis.
+
+## License
+* Sign Story
+  - (c) 2022 maximuslotro
+  - [![License](https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/maximuslotro/SignStory/main/LICENSE.md)
+* Sign Picture
+  - (c) 2016 TeamFruit
+  - [![License](https://img.shields.io/badge/License-LGPLv3-blue.svg?style=flat)](https://raw.githubusercontent.com/Team-Fruit/SignPicture/master/LICENSE.md)
+* Banana Widget
+  - (c) 2016 TeamFruit
+  - [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://opensource.org/licenses/mit-license.php)
+* Textures and Models
+  - (c) 2016 TeamFruit
+  - [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-yellow.svg?style=flat)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)
+  - (c) 2007-2017 ppy Pty Ltd
+    - [GitHub](https://github.com/ppy/osu-resources)
+    - [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-yellow.svg?style=flat)](https://github.com/ppy/osu-resources/blob/master/LICENCE.md)
+* Text and Translations
+  - [![License](https://img.shields.io/badge/License-No%20Restriction-green.svg?style=flat)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 ## Credits
 

@@ -95,6 +95,9 @@ processResources {
 
 dependencies {
 	shade('org.apache.httpcomponents:httpmime:4.3.3'){transitive=false}
+	shade('org.apache.httpcomponents:httpcore:4.3.3'){transitive=false}
+	implementation 'org.apache.httpcomponents:httpmime:4.3.3'
+	implementation 'org.apache.httpcomponents:httpcore:4.3.3'
 }
 
 def commonManifest = { 
